@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="558.0">com.tictactoe.tictactoe.UserSelectSquare</node>
+    <node x="0.0" y="0.0">com.tictactoe.tictactoe.Game</node>
+    <node x="0.0" y="249.0">com.tictactoe.tictactoe.Grid</node>
+    <node x="212.0" y="0.0">com.tictactoe.tictactoe.Player</node>
+    <node x="196.0" y="558.0">com.tictactoe.tictactoe.ComputerSelectSquare</node>
+    <node x="90.0" y="454.0">com.tictactoe.tictactoe.SelectSquareStrategy</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.tictactoe.tictactoe.UserSelectSquare" target="com.tictactoe.tictactoe.SelectSquareStrategy">
+      <point x="0.0" y="-27.0" />
+      <point x="88.0" y="533.0" />
+      <point x="142.0" y="533.0" />
+      <point x="-52.0" y="27.0" />
+    </edge>
+    <edge source="com.tictactoe.tictactoe.ComputerSelectSquare" target="com.tictactoe.tictactoe.SelectSquareStrategy">
+      <point x="0.0" y="-27.0" />
+      <point x="300.0" y="533.0" />
+      <point x="246.0" y="533.0" />
+      <point x="52.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="342.5" y="257.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
