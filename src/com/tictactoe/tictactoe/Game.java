@@ -1,19 +1,23 @@
 package com.tictactoe.tictactoe;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Game {
-    private Map<Integer, Player> players;
-    private Grid grid;
+    private final Map<Integer, Player> players;
+    private final Grid grid;
     private int turnCount;
-    public InitiateGameStrategy initiateGameStrategy;
-    public NextTurnStrategy nextTurnStrategy;
+    private final InitiateGameStrategy initiateGameStrategy;
+    private final NextTurnStrategy nextTurnStrategy;
 
 
-    public Game() {
-        this.players = players;
+    public Game(Grid grid, InitiateGameStrategy initiateGameStrategy,
+                NextTurnStrategy nextTurnStrategy) {
+        players = new HashMap<>();
         this.grid = grid;
+        this.initiateGameStrategy = initiateGameStrategy;
+        this.nextTurnStrategy = nextTurnStrategy;
     }
 
 
@@ -21,16 +25,8 @@ public class Game {
         return players;
     }
 
-    public void setPlayers(Map<Integer, Player> players) {
-        this.players = players;
-    }
-
     public Grid getGrid() {
         return grid;
-    }
-
-    public void setGrid(Grid grid) {
-        this.grid = grid;
     }
 
     public int getTurnCount() {
@@ -39,5 +35,13 @@ public class Game {
 
     public void setTurnCount(int turnCount) {
         this.turnCount = turnCount;
+    }
+
+    public InitiateGameStrategy getInitiateGameStrategy() {
+        return initiateGameStrategy;
+    }
+
+    public NextTurnStrategy getNextTurnStrategy() {
+        return nextTurnStrategy;
     }
 }
