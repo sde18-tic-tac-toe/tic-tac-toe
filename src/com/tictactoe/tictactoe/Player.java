@@ -1,5 +1,6 @@
 package com.tictactoe.tictactoe;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Player {
@@ -9,17 +10,19 @@ public class Player {
     private Set<Integer> markers;
     private SelectSquareStrategy selectSquareStrategy;
 
-    public Player(String name, String token, long playerId) {
-        this.name = name;
-        this.token = token;
-        this.playerId = playerId;
+    public Player(String name, String token, long playerId, SelectSquareStrategy selectSquareStrategy) {
+        setName(name);
+        setToken(token);
+        setPlayerId(playerId);
+        setSelectSquareStrategy(selectSquareStrategy);
+        this.markers = new HashSet<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -27,7 +30,7 @@ public class Player {
         return token;
     }
 
-    public void setToken(String token) {
+    private void setToken(String token) {
         this.token = token;
     }
 
@@ -35,7 +38,7 @@ public class Player {
         return playerId;
     }
 
-    public void setPlayerId(long playerId) {
+    private void setPlayerId(long playerId) {
         this.playerId = playerId;
     }
 
@@ -43,15 +46,11 @@ public class Player {
         return markers;
     }
 
-    public void setMarkers(Set<Integer> markers) {
-        this.markers = markers;
-    }
-
     public SelectSquareStrategy getSelectSquareStrategy() {
         return selectSquareStrategy;
     }
 
-    public void setSelectSquareStrategy(SelectSquareStrategy selectSquareStrategy) {
+    private void setSelectSquareStrategy(SelectSquareStrategy selectSquareStrategy) {
         this.selectSquareStrategy = selectSquareStrategy;
     }
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TicTacToeNextTurn implements NextTurnStrategy{
-    private static Map<Integer, Map<Integer, Integer>> winPossibilities = new HashMap<>() {{
+    public static Map<Integer, Map<Integer, Integer>> winPossibilities = new HashMap<>() {{
         put(1, new HashMap<>() {{
             put(2, 3);
             put(4, 7);
