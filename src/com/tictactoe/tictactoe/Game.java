@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
+    private final int MIN_TURN_COUNT = 0;
+    private final int MAX_TURN_COUNT = 9;
+
     private final Map<Integer, Player> players;
     private final Grid grid;
     private int turnCount;
@@ -18,6 +21,7 @@ public class Game {
         this.grid = grid;
         this.initiateGameStrategy = initiateGameStrategy;
         this.nextTurnStrategy = nextTurnStrategy;
+        turnCount = 0;
     }
 
 
@@ -33,7 +37,11 @@ public class Game {
         return turnCount;
     }
 
-    public void setTurnCount(int turnCount) {
+    public void setTurnCount(int turnCount) throws TurnCountAssignmentException {
+        if(turnCount < MIN_TURN_COUNT || turnCount > MAX_TURN_COUNT) {
+            throw new TurnCountAssignmentException("turn count must be greater than " +
+                    MIN_TURN_COUNT + " and less than " + MAX_TURN_COUNT);
+        }
         this.turnCount = turnCount;
     }
 
