@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
-    private final int MIN_TURN_COUNT = 0;
-    private final int MAX_TURN_COUNT = 9;
+    private static final int MIN_TURN_COUNT = 0;
+    private static final int MAX_TURN_COUNT = 9;
 
     private final Map<Integer, Player> players;
     private final Grid grid;
