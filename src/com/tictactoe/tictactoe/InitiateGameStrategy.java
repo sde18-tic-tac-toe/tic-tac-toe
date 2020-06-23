@@ -1,5 +1,6 @@
 package com.tictactoe.tictactoe;
 
 public interface InitiateGameStrategy {
-    public void initiateGame();
+    public void initiateGame(Game game);
+
 }
