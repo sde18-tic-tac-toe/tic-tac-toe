@@ -3,7 +3,7 @@ package com.tictactoe.tictactoe;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TicTacToeGrid implements GridStrategy {
+public class TicTacToeGrid implements Grid {
     public static Map<Integer, Map<Integer, Integer>> winPossibilities = new HashMap<>() {{
         put(1, new HashMap<>() {{
             put(2, 3);
@@ -50,10 +50,10 @@ public class TicTacToeGrid implements GridStrategy {
     }};
 
     private final Map<Integer, String> squaresFilled;
-    private final EvaluateWinStrategy evaluateWinStrategy;
+    private final EvaluateWin evaluateWin;
     private final EndInTieStrategy endInTieStrategy;
 
-    public TicTacToeGrid(EvaluateWinStrategy evaluateWinStrategy,
+    public TicTacToeGrid(EvaluateWin evaluateWin,
                          EndInTieStrategy endInTieStrategy) {
         squaresFilled = new HashMap<>() {{
             put(1, " ");
@@ -66,7 +66,7 @@ public class TicTacToeGrid implements GridStrategy {
             put(8, " ");
             put(9, " ");
         }};
-        this.evaluateWinStrategy = evaluateWinStrategy;
+        this.evaluateWin = evaluateWin;
         this.endInTieStrategy = endInTieStrategy;
     }
 
@@ -74,8 +74,8 @@ public class TicTacToeGrid implements GridStrategy {
         return squaresFilled;
     }
 
-    public EvaluateWinStrategy getEvaluateWinStrategy() {
-        return evaluateWinStrategy;
+    public EvaluateWin getEvaluateWin() {
+        return evaluateWin;
     }
 
     public EndInTieStrategy getEndInTieStrategy() {

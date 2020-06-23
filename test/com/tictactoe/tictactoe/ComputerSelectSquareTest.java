@@ -37,7 +37,7 @@ public class ComputerSelectSquareTest {
         squaresFilled.put(4, "X");
         squaresFilled.put(5, "x");
         assertEquals(2,
-            computer.getSelectSquareStrategy().selectSquare(squaresFilled));
+            computer.getSelectSquare().selectSquare(squaresFilled));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class ComputerSelectSquareTest {
         squaresFilled.put(4, "O");
         squaresFilled.put(6, "X");
         assertEquals(7,
-            computer.getSelectSquareStrategy().selectSquare(squaresFilled));
+            computer.getSelectSquare().selectSquare(squaresFilled));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class ComputerSelectSquareTest {
         squaresFilled.put(3, "X");
         squaresFilled.put(6, "X");
         assertEquals(9,
-                computer.getSelectSquareStrategy().selectSquare(squaresFilled));
+                computer.getSelectSquare().selectSquare(squaresFilled));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class ComputerSelectSquareTest {
         squaresFilled.put(6, "X");
         squaresFilled.put(8, "O");
         assertEquals(5,
-                computer.getSelectSquareStrategy().selectSquare(squaresFilled));
+                computer.getSelectSquare().selectSquare(squaresFilled));
     }
 
     @Test
@@ -80,14 +80,14 @@ public class ComputerSelectSquareTest {
         squaresFilled.put(7, "O");
         squaresFilled.put(8, "O");
         squaresFilled.put(9, "X");
-        int squareSelected = computer.getSelectSquareStrategy().selectSquare(squaresFilled);
+        int squareSelected = computer.getSelectSquare().selectSquare(squaresFilled);
         System.out.println("squareSelected: " + squareSelected);
         assertTrue(squareSelected == 2 || squareSelected == 3);
     }
 
     @Test
     public void testSelectSquareBestSelectionEmpty() {
-        int squareSelected = computer.getSelectSquareStrategy().selectSquare(squaresFilled);
+        int squareSelected = computer.getSelectSquare().selectSquare(squaresFilled);
         System.out.println("squareSelected: " + squareSelected);
 //        assertTrue(squareSelected == 2 || squareSelected == 3);
     }

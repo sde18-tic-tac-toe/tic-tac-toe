@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class ComputerSelectSquare implements SelectSquareStrategy {
+public class ComputerSelectSquare implements SelectSquare {
     private Set<Integer> possibleMoves;
     private Set<Integer> userMoves;
     private Set<Integer> computerMoves;

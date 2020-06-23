@@ -11,94 +11,35 @@ public class Client {
         System.out.println("Welcome, player 1! Please enter your name: ");
         String name = scanner.nextLine();
 
+        gameIteration(name);
+
+        System.out.println("Play again? [y]yes or [n]no");
+        String playAgain = scanner.nextLine();
+        if (playAgain.equals("y")) {
+            System.out.println("Restart");
+            gameIteration(name);
+        }
+    }
+
+    private static void gameIteration(String name) {
         game = new Game(new TicTacToeGrid(new TicTacToeEvaluateWin(),
                 new TicTacToeEndInTie()), new TicTacToeInitiateGame(),
                 new TicTacToeNextTurn());
 
-        game.getPlayers().put(1, new Player(name, "X", 1, new UserSelectSquare()));
-        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2, new ComputerSelectSquare()));
+        int coinFlipResult = new TicTacToeInitiateGame().initiateGame(game, name);
 
-        System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
+        int turnResult = 0;
+        while (turnResult == 0) {
+            turnResult = game.getNextTurn().nextTurn(coinFlipResult, game);
+        }
 
-        System.out.println("Here is the game board... Note that each grid square is represented by a number.\n" +
-
-                "      |     |     \n" +
-                "   1  |  2  |  3  \n" +
-                " _____|_____|_____\n" +
-                "      |     |     \n" +
-                "   4  |  5  |  6  \n" +
-                " _____|_____|_____\n" +
-                "      |     |     \n" +
-                "   7  |  8  |  9  \n" +
-                "      |     |     \n");
-
-        //Thread.sleep(4000);
-
-        System.out.println("The objective of the game is to complete a line of three placements of \"X\". \n" +
-                "The game will flip a coin to determine who goes first, and then you will take turns making \n" +
-                "placements until either you or the computer wins, or there is a draw (all squares filled without \n" +
-                "a winning combo.) To win, you must occupy three consecutive squares in a straight line with an \"X\", \n" +
-                "be them top to bottom, left to right, or diagonally across the grid array (or vise versa in all cases.) \n");
-
-        //Thread.sleep(10000);
-
-        System.out.println("Here is an example of a winning combination after 5 turns: \n" +
-
-                "      |     |     \n" +
-                "   X  |  O  |  O  \n" +
-                " _____|_____|_____\n" +
-                "      |     |     \n" +
-                "   4  |  X  |  O  \n" +
-                " _____|_____|_____\n" +
-                "      |     |     \n" +
-                "   7  |  8  |  X  \n" +
-                "      |     |      \n" +
-                "As you can see, squares that have not yet been selected are still designated as the \n" +
-                "number representative of that grid square. Selections that have been made replace\n" +
-                "the number associated with that grid square.");
-
-        //Thread.sleep(6000);
-
-        System.out.println("Sound good? Lets play! \n" +
-                "Please select [1]heads or [2]tails to see who goes first!");
-            String playerFlip = scanner.nextLine();
-            double flipResult = Math.random();
-            int coinFlipResult = 0;
-            if (flipResult <= 0.5 && playerFlip.equals("1")) {
-                System.out.println("The coin landed heads up! You're first!");
-                coinFlipResult = 1;
-            } else if
-            (flipResult > 0.5 && playerFlip.equals("1")) {
-                System.out.println("The coin landed tails up... You're going second.");
-                coinFlipResult = 2;
-            } else if
-            (flipResult >= 0.5 && playerFlip.equals("2")) {
-                System.out.println("The coin landed tails up! You're first!");
-                coinFlipResult = 1;
-            } else if
-            (flipResult < 0.5 && playerFlip.equals("2")) {
-                System.out.println("The coin landed heads up... You're going second.");
-                coinFlipResult = 2;
-            }
-            int turnResult = 0;
-            while (turnResult == 0) {
-                turnResult = game.getNextTurnStrategy().nextTurn(coinFlipResult, game);
-                System.out.println("Turn: " + turnResult);
-            }
-        System.out.println("turnResult: " + turnResult);
-            if (turnResult == 1) {
-                System.out.println("Congrats! You are the winner!");
-            } else if (turnResult == 2) {
-                System.out.println("Sorry! You've been had...");
-            } else if (turnResult == 3) {
-                System.out.println("Draw game!");
-            }
-        System.out.println("Play again? [y]yes or [n]no");
-            String playAgain = scanner.nextLine();
-            if (playAgain == "y") {
-                System.out.println("Restart");
-                main(new String[] {});
-            }
+        if (turnResult == 1) {
+            System.out.println("Congrats! You are the winner!");
+        } else if (turnResult == 2) {
+            System.out.println("Sorry! You've been had...");
+        } else if (turnResult == 3) {
+            System.out.println("Draw game!");
         }
     }
+}
 
