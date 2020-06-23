@@ -1,19 +1,27 @@
 package com.tictactoe.tictactoe;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Game {
-    private Map<Integer, Player> players;
-    private Grid grid;
+    private static final int MIN_TURN_COUNT = 0;
+    private static final int MAX_TURN_COUNT = 9;
+
+    private final Map<Integer, Player> players;
+    private final Grid grid;
     private int turnCount;
-    public InitiateGameStrategy initiateGameStrategy;
-    public NextTurnStrategy nextTurnStrategy;
+    private final InitiateGameStrategy initiateGameStrategy;
+    private final NextTurnStrategy nextTurnStrategy;
 
 
-    public Game() {
-        this.players = players;
+    public Game(Grid grid, InitiateGameStrategy initiateGameStrategy,
+                NextTurnStrategy nextTurnStrategy) {
+        players = new HashMap<>();
         this.grid = grid;
+        this.initiateGameStrategy = initiateGameStrategy;
+        this.nextTurnStrategy = nextTurnStrategy;
+        turnCount = 0;
     }
 
 
@@ -21,23 +29,27 @@ public class Game {
         return players;
     }
 
-    public void setPlayers(Map<Integer, Player> players) {
-        this.players = players;
-    }
-
     public Grid getGrid() {
         return grid;
-    }
-
-    public void setGrid(Grid grid) {
-        this.grid = grid;
     }
 
     public int getTurnCount() {
         return turnCount;
     }
 
-    public void setTurnCount(int turnCount) {
+    public void setTurnCount(int turnCount) throws TurnCountAssignmentException {
+        if(turnCount < MIN_TURN_COUNT || turnCount > MAX_TURN_COUNT) {
+            throw new TurnCountAssignmentException("turn count must be greater than " +
+                    MIN_TURN_COUNT + " and less than " + MAX_TURN_COUNT);
+        }
         this.turnCount = turnCount;
+    }
+
+    public InitiateGameStrategy getInitiateGameStrategy() {
+        return initiateGameStrategy;
+    }
+
+    public NextTurnStrategy getNextTurnStrategy() {
+        return nextTurnStrategy;
     }
 }
