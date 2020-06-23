@@ -16,15 +16,15 @@ public class ComputerSelectSquareTest {
     @Before
     public void setUp() throws Exception {
         squaresFilled = new HashMap<>() {{
-            put(1, "");
-            put(2, "");
-            put(3, "");
-            put(4, "");
-            put(5, "");
-            put(6, "");
-            put(7, "");
-            put(8, "");
-            put(9, "");
+            put(1, " ");
+            put(2, " ");
+            put(3, " ");
+            put(4, " ");
+            put(5, " ");
+            put(6, " ");
+            put(7, " ");
+            put(8, " ");
+            put(9, " ");
         }};
         computer = new Player("TicTac", "O", 2,
                 new ComputerSelectSquare());
@@ -72,7 +72,7 @@ public class ComputerSelectSquareTest {
     }
 
     @Test
-    public void testSelectSquareBestSelection() {
+    public void testSelectSquareBestSelectionMostlyFilled() {
         squaresFilled.put(1, "O");
         squaresFilled.put(4, "X");
         squaresFilled.put(5, "X");
@@ -83,5 +83,12 @@ public class ComputerSelectSquareTest {
         int squareSelected = computer.getSelectSquareStrategy().selectSquare(squaresFilled);
         System.out.println("squareSelected: " + squareSelected);
         assertTrue(squareSelected == 2 || squareSelected == 3);
+    }
+
+    @Test
+    public void testSelectSquareBestSelectionEmpty() {
+        int squareSelected = computer.getSelectSquareStrategy().selectSquare(squaresFilled);
+        System.out.println("squareSelected: " + squareSelected);
+//        assertTrue(squareSelected == 2 || squareSelected == 3);
     }
 }
