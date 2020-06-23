@@ -62,9 +62,9 @@ public class TicTacToeNextTurn implements NextTurnStrategy{
 
         // if we have a winner, return first player
         if(game.getGridStrategy().getEvaluateWinStrategy().evaluateWin(
-                game.getPlayers().get(firstPlayer),
+                game.getPlayers().get(otherPlayer),
                 selectedSquare)) {
-            return firstPlayer;
+            return otherPlayer;
         }
 
         // if we end in tie

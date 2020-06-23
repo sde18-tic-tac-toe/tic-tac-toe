@@ -97,7 +97,7 @@ public class Client {
             String playAgain = scanner.nextLine();
             if (playAgain == "y") {
                 System.out.println("Restart");
-                main(null);
+                main(new String[] {});
             }
         }
     }
