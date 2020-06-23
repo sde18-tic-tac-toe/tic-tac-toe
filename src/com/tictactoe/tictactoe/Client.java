@@ -11,8 +11,12 @@ public class Client {
         System.out.println("Welcome, player 1! Please enter your name: ");
         String name = scanner.nextLine();
 
-        game = new Game(new Grid(new TicTacToeEvaluateWin(),
-                new TicTacToeEndInTie()), new TicTacToeNextTurn());
+        game = new Game(new TicTacToeGrid(new TicTacToeEvaluateWin(),
+                new TicTacToeEndInTie()), new TicTacToeInitiateGame(),
+                new TicTacToeNextTurn());
+
+        game.getPlayers().put(1, new Player(name, "X", 1, new UserSelectSquare()));
+        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2, new ComputerSelectSquare()));
 
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
 
@@ -28,7 +32,7 @@ public class Client {
                 "   7  |  8  |  9  \n" +
                 "      |     |     \n");
 
-        Thread.sleep(4000);
+        //Thread.sleep(4000);
 
         System.out.println("The objective of the game is to complete a line of three placements of \"X\". \n" +
                 "The game will flip a coin to determine who goes first, and then you will take turns making \n" +
@@ -36,7 +40,7 @@ public class Client {
                 "a winning combo.) To win, you must occupy three consecutive squares in a straight line with an \"X\", \n" +
                 "be them top to bottom, left to right, or diagonally across the grid array (or vise versa in all cases.) \n");
 
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
 
         System.out.println("Here is an example of a winning combination after 5 turns: \n" +
 
@@ -53,7 +57,7 @@ public class Client {
                 "number representative of that grid square. Selections that have been made replace\n" +
                 "the number associated with that grid square.");
 
-        Thread.sleep(6000);
+        //Thread.sleep(6000);
 
         System.out.println("Sound good? Lets play! \n" +
                 "Please select [1]heads or [2]tails to see who goes first!");
@@ -75,6 +79,10 @@ public class Client {
             (flipResult < 0.5 && playerFlip.equals("2")) {
                 System.out.println("The coin landed heads up... You're going second.");
                 coinFlipResult = 2;
+            }
+            int turnResult = 0;
+            while (turnResult == 0) {
+                turnResult = game.getNextTurnStrategy().nextTurn(coinFlipResult, game);
             }
         }
     }
