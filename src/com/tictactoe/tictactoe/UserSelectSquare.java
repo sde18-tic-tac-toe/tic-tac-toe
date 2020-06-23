@@ -8,7 +8,7 @@ public class UserSelectSquare implements SelectSquareStrategy {
     public int selectSquare(Map<Integer, String> squaresFilled) {
         Scanner scan = new Scanner(System.in);
         int userPos = scan.nextInt();
-        while (!squaresFilled.get(userPos).equals("")) {
+        while (!squaresFilled.get(userPos).equals(" ")) {
             System.out.println("Position taken! Enter a correct Position");
             userPos = scan.nextInt();
         }

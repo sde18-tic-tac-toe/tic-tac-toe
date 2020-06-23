@@ -16,54 +16,40 @@ public class TicTacToeEvaluateWinTest {
     @org.junit.Test
     public void evaluateWin357() {
         player.getMarkers().add(5);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 5,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 5));
         player.getMarkers().add(2);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 2,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 2));
         player.getMarkers().add(3);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 3,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 3));
         player.getMarkers().add(7);
-        assertTrue(evaluateWinStrategy.evaluateWin(player, 7,
-                Grid.winPossibilities));
+        assertTrue(evaluateWinStrategy.evaluateWin(player, 7));
     }
 
     @org.junit.Test
     public void evaluateWin123() {
         player.getMarkers().add(2);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 2,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 2));
         player.getMarkers().add(1);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 1,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 1));
         player.getMarkers().add(8);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 8,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 8));
         player.getMarkers().add(6);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 6,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 6));
         player.getMarkers().add(3);
-        assertTrue(evaluateWinStrategy.evaluateWin(player, 3,
-                Grid.winPossibilities));
+        assertTrue(evaluateWinStrategy.evaluateWin(player, 3));
     }
 
     @org.junit.Test
     public void evaluateWin147() {
         player.getMarkers().add(2);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 2,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 2));
         player.getMarkers().add(1);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 1,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 1));
         player.getMarkers().add(7);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 7,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 7));
         player.getMarkers().add(6);
-        assertFalse(evaluateWinStrategy.evaluateWin(player, 6,
-                Grid.winPossibilities));
+        assertFalse(evaluateWinStrategy.evaluateWin(player, 6));
         player.getMarkers().add(4);
-        assertTrue(evaluateWinStrategy.evaluateWin(player, 4,
-                Grid.winPossibilities));
+        assertTrue(evaluateWinStrategy.evaluateWin(player, 4));
     }
 }

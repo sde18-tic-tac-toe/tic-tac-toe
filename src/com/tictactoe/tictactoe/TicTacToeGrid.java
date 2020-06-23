@@ -3,7 +3,7 @@ package com.tictactoe.tictactoe;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Grid {
+public class TicTacToeGrid implements GridStrategy {
     public static Map<Integer, Map<Integer, Integer>> winPossibilities = new HashMap<>() {{
         put(1, new HashMap<>() {{
             put(2, 3);
@@ -53,18 +53,18 @@ public class Grid {
     private final EvaluateWinStrategy evaluateWinStrategy;
     private final EndInTieStrategy endInTieStrategy;
 
-    public Grid(EvaluateWinStrategy evaluateWinStrategy,
-                EndInTieStrategy endInTieStrategy) {
+    public TicTacToeGrid(EvaluateWinStrategy evaluateWinStrategy,
+                         EndInTieStrategy endInTieStrategy) {
         squaresFilled = new HashMap<>() {{
-            put(1, "");
-            put(2, "");
-            put(3, "");
-            put(4, "");
-            put(5, "");
-            put(6, "");
-            put(7, "");
-            put(8, "");
-            put(9, "");
+            put(1, " ");
+            put(2, " ");
+            put(3, " ");
+            put(4, " ");
+            put(5, " ");
+            put(6, " ");
+            put(7, " ");
+            put(8, " ");
+            put(9, " ");
         }};
         this.evaluateWinStrategy = evaluateWinStrategy;
         this.endInTieStrategy = endInTieStrategy;
@@ -80,5 +80,18 @@ public class Grid {
 
     public EndInTieStrategy getEndInTieStrategy() {
         return endInTieStrategy;
+    }
+
+    public void displayGrid() {
+        System.out.println("-------");
+        for(int square = 1; square < 10; square = square + 3) {
+            StringBuffer sb = new StringBuffer();
+            sb.append("|").append(getSquaresFilled().get(square)).
+                    append("|").append(getSquaresFilled().get(square + 1)).
+                    append("|").append(getSquaresFilled().get(square + 2)).
+                    append("|");
+            System.out.println(sb);
+            System.out.println("-------");
+        }
     }
 }
