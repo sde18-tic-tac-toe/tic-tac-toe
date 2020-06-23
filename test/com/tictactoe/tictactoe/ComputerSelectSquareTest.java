@@ -70,4 +70,18 @@ public class ComputerSelectSquareTest {
         assertEquals(5,
                 computer.getSelectSquareStrategy().selectSquare(squaresFilled));
     }
+
+    @Test
+    public void testSelectSquareBestSelection() {
+        squaresFilled.put(1, "O");
+        squaresFilled.put(4, "X");
+        squaresFilled.put(5, "X");
+        squaresFilled.put(6, "O");
+        squaresFilled.put(7, "O");
+        squaresFilled.put(8, "O");
+        squaresFilled.put(9, "X");
+        int squareSelected = computer.getSelectSquareStrategy().selectSquare(squaresFilled);
+        System.out.println("squareSelected: " + squareSelected);
+        assertTrue(squareSelected == 2 || squareSelected == 3);
+    }
 }
