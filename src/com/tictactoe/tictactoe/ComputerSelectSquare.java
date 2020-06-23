@@ -31,7 +31,7 @@ public class ComputerSelectSquare implements SelectSquareStrategy {
         for(Map.Entry<Integer, String> squaresFilledRow : squaresFilled.entrySet()) {
             int square = squaresFilledRow.getKey();
             String token = squaresFilledRow.getValue();
-            if(token != "") {
+            if(token != " ") {
                 possibleMoves.remove(square);
                 if(token.equals("X")) {
                     userMoves.add(square);
