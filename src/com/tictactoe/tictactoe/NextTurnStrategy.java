@@ -1,5 +1,5 @@
 package com.tictactoe.tictactoe;
 
 public interface NextTurnStrategy {
-    public void nextTurn();
+    public int nextTurn(int firstPlayer, Game game);
 }
