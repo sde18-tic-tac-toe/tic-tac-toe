@@ -18,6 +18,9 @@ public class TicTacToeNextTurn implements NextTurnStrategy{
         selectedSquare = game.getPlayers().get(firstPlayer).getSelectSquareStrategy().
                 selectSquare(game.getGridStrategy().getSquaresFilled());
 
+        // update grid squaresFilled
+        game.getGridStrategy().getSquaresFilled().put(selectedSquare, game.getPlayers().get(firstPlayer).getToken());
+
         // display board
         game.getGridStrategy().displayGrid();
 
@@ -44,6 +47,9 @@ public class TicTacToeNextTurn implements NextTurnStrategy{
         // get otherPlayer selectedSquare
         selectedSquare = game.getPlayers().get(otherPlayer).getSelectSquareStrategy().
                 selectSquare(game.getGridStrategy().getSquaresFilled());
+
+        // update grid squaresFilled
+        game.getGridStrategy().getSquaresFilled().put(selectedSquare, game.getPlayers().get(otherPlayer).getToken());
 
         // display board
         game.getGridStrategy().displayGrid();
