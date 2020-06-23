@@ -1,7 +1,6 @@
 package com.tictactoe.tictactoe;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Game {
@@ -9,16 +8,16 @@ public class Game {
     private static final int MAX_TURN_COUNT = 9;
 
     private final Map<Integer, Player> players;
-    private final Grid grid;
+    private final GridStrategy gridStrategy;
     private int turnCount;
     private final InitiateGameStrategy initiateGameStrategy;
     private final NextTurnStrategy nextTurnStrategy;
 
 
-    public Game(Grid grid, InitiateGameStrategy initiateGameStrategy,
+    public Game(GridStrategy gridStrategy, InitiateGameStrategy initiateGameStrategy,
                 NextTurnStrategy nextTurnStrategy) {
         players = new HashMap<>();
-        this.grid = grid;
+        this.gridStrategy = gridStrategy;
         this.initiateGameStrategy = initiateGameStrategy;
         this.nextTurnStrategy = nextTurnStrategy;
         turnCount = 0;
@@ -29,8 +28,8 @@ public class Game {
         return players;
     }
 
-    public Grid getGrid() {
-        return grid;
+    public GridStrategy getGridStrategy() {
+        return gridStrategy;
     }
 
     public int getTurnCount() {
