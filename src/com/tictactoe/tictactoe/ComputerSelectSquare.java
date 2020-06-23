@@ -71,9 +71,11 @@ public class ComputerSelectSquare implements SelectSquareStrategy {
             if(userMoves.contains(possibilityKey.getKey())) {
                 for(Map.Entry<Integer, Integer> possibilityVal :
                         possibilityKey.getValue().entrySet()) {
-                    if(userMoves.contains(possibilityVal.getKey())) {
+                    if(userMoves.contains(possibilityVal.getKey()) &&
+                        possibleMoves.contains(possibilityVal.getValue())) {
                         return possibilityVal.getValue();
-                    } else if(userMoves.contains(possibilityVal.getValue())) {
+                    } else if(userMoves.contains(possibilityVal.getValue()) &&
+                        possibleMoves.contains(possibilityVal.getKey())) {
                         return possibilityVal.getKey();
                     }
                 }
