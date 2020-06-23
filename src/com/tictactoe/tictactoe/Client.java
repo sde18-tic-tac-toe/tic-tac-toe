@@ -83,6 +83,21 @@ public class Client {
             int turnResult = 0;
             while (turnResult == 0) {
                 turnResult = game.getNextTurnStrategy().nextTurn(coinFlipResult, game);
+                System.out.println("Turn: " + turnResult);
+            }
+        System.out.println("turnResult: " + turnResult);
+            if (turnResult == 1) {
+                System.out.println("Congrats! You are the winner!");
+            } else if (turnResult == 2) {
+                System.out.println("Sorry! You've been had...");
+            } else if (turnResult == 3) {
+                System.out.println("Draw game!");
+            }
+        System.out.println("Play again? [y]yes or [n]no");
+            String playAgain = scanner.nextLine();
+            if (playAgain == "y") {
+                System.out.println("Restart");
+                main(null);
             }
         }
     }
