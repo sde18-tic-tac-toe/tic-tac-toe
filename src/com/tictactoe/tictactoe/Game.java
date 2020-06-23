@@ -11,15 +11,12 @@ public class Game {
     private final Map<Integer, Player> players;
     private final Grid grid;
     private int turnCount;
-    private final InitiateGameStrategy initiateGameStrategy;
     private final NextTurnStrategy nextTurnStrategy;
 
 
-    public Game(Grid grid, InitiateGameStrategy initiateGameStrategy,
-                NextTurnStrategy nextTurnStrategy) {
+    public Game(Grid grid, NextTurnStrategy nextTurnStrategy) {
         players = new HashMap<>();
         this.grid = grid;
-        this.initiateGameStrategy = initiateGameStrategy;
         this.nextTurnStrategy = nextTurnStrategy;
         turnCount = 0;
     }
@@ -43,10 +40,6 @@ public class Game {
                     MIN_TURN_COUNT + " and less than " + MAX_TURN_COUNT);
         }
         this.turnCount = turnCount;
-    }
-
-    public InitiateGameStrategy getInitiateGameStrategy() {
-        return initiateGameStrategy;
     }
 
     public NextTurnStrategy getNextTurnStrategy() {
