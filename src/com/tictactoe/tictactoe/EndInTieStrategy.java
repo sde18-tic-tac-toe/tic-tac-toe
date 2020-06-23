@@ -1,5 +1,5 @@
 package com.tictactoe.tictactoe;
 
 public interface EndInTieStrategy {
-    public boolean endInTie(Grid grid);
+    public boolean endInTie(GridStrategy gridStrategy);
 }

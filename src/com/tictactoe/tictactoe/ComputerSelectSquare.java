@@ -52,7 +52,7 @@ public class ComputerSelectSquare implements SelectSquareStrategy {
 
     private int winOrBlockMove() {
         for(Map.Entry<Integer, Map<Integer, Integer>> possibilityKey :
-                Grid.winPossibilities.entrySet()) {
+                TicTacToeGrid.winPossibilities.entrySet()) {
             if(computerMoves.contains(possibilityKey.getKey())) {
                 for(Map.Entry<Integer, Integer> possibilityVal :
                         possibilityKey.getValue().entrySet()) {
@@ -67,13 +67,15 @@ public class ComputerSelectSquare implements SelectSquareStrategy {
             }
         }
         for(Map.Entry<Integer, Map<Integer, Integer>> possibilityKey :
-                Grid.winPossibilities.entrySet()) {
+                TicTacToeGrid.winPossibilities.entrySet()) {
             if(userMoves.contains(possibilityKey.getKey())) {
                 for(Map.Entry<Integer, Integer> possibilityVal :
                         possibilityKey.getValue().entrySet()) {
-                    if(userMoves.contains(possibilityVal.getKey())) {
+                    if(userMoves.contains(possibilityVal.getKey()) &&
+                        possibleMoves.contains(possibilityVal.getValue())) {
                         return possibilityVal.getValue();
-                    } else if(userMoves.contains(possibilityVal.getValue())) {
+                    } else if(userMoves.contains(possibilityVal.getValue()) &&
+                        possibleMoves.contains(possibilityVal.getKey())) {
                         return possibilityVal.getKey();
                     }
                 }
@@ -86,7 +88,7 @@ public class ComputerSelectSquare implements SelectSquareStrategy {
         // if two squares are open in line with currently selected square, select the first
         // one found
         for(int possibleMove : computerMoves) {
-            Map<Integer, Integer> possibilities = Grid.winPossibilities.get(possibleMove);
+            Map<Integer, Integer> possibilities = TicTacToeGrid.winPossibilities.get(possibleMove);
             for(Map.Entry<Integer, Integer> possibility : possibilities.entrySet()) {
                 if(possibleMoves.contains(possibility.getKey()) &&
                     possibleMoves.contains(possibility.getValue())) {

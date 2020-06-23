@@ -7,32 +7,32 @@ import static org.junit.Assert.*;
 
 public class TicTacToeEndInTieTest {
 
-    Grid grid;
+    TicTacToeGrid ticTacToeGrid;
 
     @Before
     public void setUp() throws Exception {
-        grid = new Grid(new TicTacToeEvaluateWin(), new TicTacToeEndInTie());
+        ticTacToeGrid = new TicTacToeGrid(new TicTacToeEvaluateWin(), new TicTacToeEndInTie());
     }
 
     @Test
     public void endInTie() {
-        grid.getSquaresFilled().put(1, "X");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(2, "O");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(3, "X");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(4, "X");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(5, "O");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(6, "X");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(7, "O");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(8, "X");
-        assertFalse(grid.getEndInTieStrategy().endInTie(grid));
-        grid.getSquaresFilled().put(9, "O");
-        assertTrue(grid.getEndInTieStrategy().endInTie(grid));
+        ticTacToeGrid.getSquaresFilled().put(1, "X");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(2, "O");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(3, "X");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(4, "X");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(5, "O");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(6, "X");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(7, "O");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(8, "X");
+        assertFalse(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
+        ticTacToeGrid.getSquaresFilled().put(9, "O");
+        assertTrue(ticTacToeGrid.getEndInTieStrategy().endInTie(ticTacToeGrid));
     }
 }
