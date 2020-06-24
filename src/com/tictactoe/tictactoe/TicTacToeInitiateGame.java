@@ -2,7 +2,7 @@ package com.tictactoe.tictactoe;
 
 import java.util.Scanner;
 
-public class TicTacToeInitiateGame implements TicTacToeInitiateGame {
+public class TicTacToeInitiateGame implements InitiateGame{
 
     @Override
     public int initiateGame(Game game, String name) {
