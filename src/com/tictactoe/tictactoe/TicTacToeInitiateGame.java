@@ -2,10 +2,17 @@ package com.tictactoe.tictactoe;
 
 import java.util.Scanner;
 
-public class TicTacToeInitiateGame implements InitiateGame{
+class TicTacToeInitiateGame implements InitiateGame{
 
+    /**
+     * @param game Reference to the Game.
+     * @param name Reference to player name (generated from user input prompt.)
+     * @return result of coin flip, in this case either a 0 or a 1, but to provide
+     * proper context to the player, these options are reframed to 1 for heads and
+     * 2 for tails.
+     */
     @Override
-    public void initiateGame(Game game, String name) {
+    public int initiateGame(Game game, String name) {
 
         game.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare(),
                 new UserMakeWager()));
@@ -15,7 +22,7 @@ public class TicTacToeInitiateGame implements InitiateGame{
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nWould you like to view instructions for Tic Tac Toe? ");
+        System.out.print("\nWould you like to view instructions for Tic Tac Toe ([y]es or [n]o)? ");
         String viewInstructions = scanner.nextLine();
         while(!viewInstructions.toLowerCase().equals("y") && !viewInstructions.toLowerCase().equals("n") &&
                 !viewInstructions.toLowerCase().equals("yes") && !viewInstructions.toLowerCase().equals("no")) {
@@ -27,6 +34,34 @@ public class TicTacToeInitiateGame implements InitiateGame{
             System.out.println();
             displayInstructions();
         }
+
+        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails...");
+        String playerFlip = scanner.nextLine();
+        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
+            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
+            playerFlip = scanner.nextLine();
+        }
+
+        double flipResult = Math.random();
+        int coinFlipResult = 0;
+        if (flipResult <= 0.5 && playerFlip.equals("1")) {
+            System.out.println("The coin landed heads up! You're first!\n");
+            coinFlipResult = 1;
+        } else if
+        (flipResult > 0.5 && playerFlip.equals("1")) {
+            System.out.println("The coin landed tails up... You're going second.\n");
+            coinFlipResult = 2;
+        } else if
+        (flipResult >= 0.5 && playerFlip.equals("2")) {
+            System.out.println("The coin landed tails up! You're first!\n");
+            coinFlipResult = 1;
+        } else if
+        (flipResult < 0.5 && playerFlip.equals("2")) {
+            System.out.println("The coin landed heads up... You're going second.\n");
+            coinFlipResult = 2;
+        }
+
+        return 0;
 
 //        System.out.print("\nLets flip a coin to see who goes first! Please choose [1]heads or [2]tails... ");
 //        String playerFlip = scanner.nextLine();
@@ -93,10 +128,10 @@ public class TicTacToeInitiateGame implements InitiateGame{
                 "      |     |      \n\n" +
                 "As you can see, squares that have not yet been selected are still designated as the \n" +
                 "number representative of that grid square. Selections that have been made replace\n" +
-                "the number associated with that grid square.");
+                "the number associated with that grid square.\n\n" );
 
         //Thread.sleep(6000);
 
-        System.out.print("Sound good? Lets play!");
+        System.out.println("Sound good? Lets play! \n \n");
     }
 }
