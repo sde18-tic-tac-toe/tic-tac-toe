@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class TicTacToeInitiateGame implements InitiateGame{
 
     @Override
-    public void initiateGame(Game game, String name) {
+    public void initiateGame(TicTacToeGame ticTacToeGame, String name) {
 
-        game.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare(),
+        ticTacToeGame.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare(),
                 new UserMakeWager()));
-        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2,
+        ticTacToeGame.getPlayers().put(2, new Player("Syntactical Computer", "O", 2,
                 new TicTacToeComputerSelectSquare(), new ComputerMakeWager()));
 
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");

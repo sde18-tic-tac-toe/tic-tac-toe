@@ -1,54 +1,74 @@
 package com.tictactoe.tictactoe;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Scanner;
 
-public class Game {
-    private static final int MIN_TURN_COUNT = 0;
-    private static final int MAX_TURN_COUNT = 9;
+public class Game implements InitiateGame{
 
-    private final Map<Integer, Player> players;
-    private final Grid grid;
-    private int turnCount;
-    private final InitiateGame initiateGame;
-    private final NextTurn nextTurn;
+    @Override
+    public void initiateGame(TicTacToeGame ticTacToeGame, String name) {
 
+        ticTacToeGame.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare(),
+                new UserMakeWager()));
+        ticTacToeGame.getPlayers().put(2, new Player("Syntactical Computer", "O", 2,
+                new TicTacToeComputerSelectSquare(), new ComputerMakeWager()));
 
-    public Game(Grid grid, InitiateGame initiateGame,
-                NextTurn nextTurn) {
-        players = new HashMap<>();
-        this.grid = grid;
-        this.initiateGame = initiateGame;
-        this.nextTurn = nextTurn;
-        turnCount = 0;
-    }
+        System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
+        Scanner scanner = new Scanner(System.in);
 
-
-    public Map<Integer, Player> getPlayers() {
-        return players;
-    }
-
-    public Grid getGrid() {
-        return grid;
-    }
-
-    public int getTurnCount() {
-        return turnCount;
-    }
-
-    public void setTurnCount(int turnCount) throws TurnCountAssignmentException {
-        if(turnCount < MIN_TURN_COUNT || turnCount > MAX_TURN_COUNT) {
-            throw new TurnCountAssignmentException("turn count must be greater than " +
-                    MIN_TURN_COUNT + " and less than " + MAX_TURN_COUNT);
+        System.out.print("\nWould you like to view instructions for Tic Tac Toe? ");
+        String viewInstructions = scanner.nextLine();
+        while(!viewInstructions.toLowerCase().equals("y") && !viewInstructions.toLowerCase().equals("n") &&
+                !viewInstructions.toLowerCase().equals("yes") && !viewInstructions.toLowerCase().equals("no")) {
+            System.out.print("Invalid selection. Please enter [y]es or [n]o: ");
+            viewInstructions = scanner.nextLine();
         }
-        this.turnCount = turnCount;
+
+        if (viewInstructions.toLowerCase().equals("y")) {
+            System.out.println();
+            displayInstructions();
+        }
     }
 
-    public InitiateGame getInitiateGame() {
-        return initiateGame;
-    }
+    private void displayInstructions() {
+        System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
 
-    public NextTurn getNextTurn() {
-        return nextTurn;
+                "      |     |     \n" +
+                "   1  |  2  |  3  \n" +
+                " _____|_____|_____\n" +
+                "      |     |     \n" +
+                "   4  |  5  |  6  \n" +
+                " _____|_____|_____\n" +
+                "      |     |     \n" +
+                "   7  |  8  |  9  \n" +
+                "      |     |     \n");
+
+        //Thread.sleep(4000);
+
+        System.out.println("The objective of the game is to complete a line of three placements of \"X\". \n" +
+                "The game will flip a coin to determine who goes first, and then you will take turns making \n" +
+                "placements until either you or the computer wins, or there is a draw (all squares filled without \n" +
+                "a winning combo.) To win, you must occupy three consecutive squares in a straight line with an \"X\", \n" +
+                "be them top to bottom, left to right, or diagonally across the grid array (or vise versa in all cases.) \n");
+
+        //Thread.sleep(10000);
+
+        System.out.println("Here is an example of a winning combination after 5 turns: \n\n" +
+
+                "      |     |     \n" +
+                "   X  |  O  |  O  \n" +
+                " _____|_____|_____\n" +
+                "      |     |     \n" +
+                "   4  |  X  |  O  \n" +
+                " _____|_____|_____\n" +
+                "      |     |     \n" +
+                "   7  |  8  |  X  \n" +
+                "      |     |      \n\n" +
+                "As you can see, squares that have not yet been selected are still designated as the \n" +
+                "number representative of that grid square. Selections that have been made replace\n" +
+                "the number associated with that grid square.");
+
+        //Thread.sleep(6000);
+
+        System.out.print("Sound good? Lets play!");
     }
 }

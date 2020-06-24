@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Client {
 
-    private static Game game;
+    private static TicTacToeGame ticTacToeGame;
 
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
@@ -15,22 +15,22 @@ public class Client {
     }
 
     private static void gameIteration(String name) {
-        game = new Game(new TicTacToeGrid(new TicTacToeEvaluateWin(),
+        ticTacToeGame = new TicTacToeGame(new TicTacToeGrid(new TicTacToeEvaluateWin(),
                 new TicTacToeEndInTie()), new TicTacToeInitiateGame(),
                 new TicTacToeNextTurn());
 
-        game.getInitiateGame().initiateGame(game, name);
+        ticTacToeGame.getInitiateGame().initiateGame(ticTacToeGame, name);
 
-        game.getGrid().displayGrid();
+        ticTacToeGame.getGrid().displayGrid();
 
         TurnResult turnResult = TurnResult.CONTINUE;
         while (turnResult == TurnResult.CONTINUE) {
             // get wagers
-            int userWager = game.getPlayers().get(1).getMakeWager().makeWager(
-                    game.getPlayers().get(1));
+            int userWager = ticTacToeGame.getPlayers().get(1).getMakeWager().makeWager(
+                    ticTacToeGame.getPlayers().get(1));
 
-            int computerWager = game.getPlayers().get(2).getMakeWager().makeWager(
-                    game.getPlayers().get(2));
+            int computerWager = ticTacToeGame.getPlayers().get(2).getMakeWager().makeWager(
+                    ticTacToeGame.getPlayers().get(2));
 
             // highest wager takes next turn
             int highestWager = 0;
@@ -42,7 +42,7 @@ public class Client {
                 highestWager = 2;
             }
 
-            turnResult = game.getNextTurn().nextTurn(highestWager, game);
+            turnResult = ticTacToeGame.getNextTurn().nextTurn(highestWager, ticTacToeGame);
         }
 
         if (turnResult == TurnResult.USER_WINS) {
@@ -50,7 +50,7 @@ public class Client {
         } else if (turnResult == TurnResult.COMPUTER_WINS) {
             System.out.println("Sorry! You've been had...");
         } else if (turnResult == TurnResult.DRAW) {
-            System.out.println("Draw game!");
+            System.out.println("Draw ticTacToeGame!");
         }
 
         System.out.print("Play again? [y]es or [n]o: ");

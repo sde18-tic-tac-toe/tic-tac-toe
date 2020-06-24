@@ -1,5 +1,5 @@
 package com.tictactoe.tictactoe;
 
 public interface InitiateGame {
-    public void initiateGame(Game game, String name);
+    public void initiateGame(TicTacToeGame ticTacToeGame, String name);
 }
