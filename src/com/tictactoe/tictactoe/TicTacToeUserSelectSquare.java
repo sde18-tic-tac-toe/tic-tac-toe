@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * SelectSquare implementation for Tic Tac Toe user
  */
-public class UserSelectSquare implements SelectSquare {
+public class TicTacToeUserSelectSquare implements SelectSquare {
     /**
      * selectSquare method for Tic Tac Toe user
      * @param squaresFilled squaresFilled field from Grid class

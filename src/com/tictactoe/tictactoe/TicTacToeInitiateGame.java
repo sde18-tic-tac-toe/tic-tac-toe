@@ -7,8 +7,8 @@ public class TicTacToeInitiateGame implements InitiateGame{
     @Override
     public int initiateGame(Game game, String name) {
 
-        game.getPlayers().put(1, new Player(name, "X", 1, new UserSelectSquare()));
-        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2, new ComputerSelectSquare()));
+        game.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare()));
+        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2, new TicTacToeComputerSelectSquare()));
 
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
         Scanner scanner = new Scanner(System.in);
