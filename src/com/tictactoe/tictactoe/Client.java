@@ -2,6 +2,9 @@ package com.tictactoe.tictactoe;
 
 import java.util.Scanner;
 
+/**
+ * Client houses main() method and instantiates the game.
+ */
 public class Client {
 
     private static Game game;
@@ -51,4 +54,3 @@ public class Client {
         }
     }
 }
-

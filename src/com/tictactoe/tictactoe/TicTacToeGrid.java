@@ -3,6 +3,9 @@ package com.tictactoe.tictactoe;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Base Tic Tac Toe grid layer that determines all possible winning combinations.
+ */
 public class TicTacToeGrid implements Grid {
     public static Map<Integer, Map<Integer, Integer>> winPossibilities = new HashMap<>() {{
         put(1, new HashMap<>() {{
@@ -53,6 +56,10 @@ public class TicTacToeGrid implements Grid {
     private final EvaluateWin evaluateWin;
     private final EndInTieStrategy endInTieStrategy;
 
+    /**
+     * @param evaluateWin implements win parameters for Tic Tac Toe.
+     * @param endInTieStrategy implements tie game parameters for Tic Tac Toe.
+     */
     public TicTacToeGrid(EvaluateWin evaluateWin,
                          EndInTieStrategy endInTieStrategy) {
         squaresFilled = new HashMap<>() {{
@@ -70,18 +77,30 @@ public class TicTacToeGrid implements Grid {
         this.endInTieStrategy = endInTieStrategy;
     }
 
+    /**
+     * @return squares filled implementation for Tic Tac Toe.
+     */
     public Map<Integer, String> getSquaresFilled() {
         return squaresFilled;
     }
 
+    /**
+     * @return player or computer win implementation for Tic Tac Toe.
+     */
     public EvaluateWin getEvaluateWin() {
         return evaluateWin;
     }
 
+    /**
+     * @return tie game implementation for Tic Tac Toe.
+     */
     public EndInTieStrategy getEndInTieStrategy() {
         return endInTieStrategy;
     }
 
+    /**
+     * Prints grid and appends player/computer selection for each turn.
+     */
     public void displayGrid() {
         StringBuffer sb = new StringBuffer();
         sb.append("     |     |     \n");

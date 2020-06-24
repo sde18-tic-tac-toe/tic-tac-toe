@@ -2,8 +2,15 @@ package com.tictactoe.tictactoe;
 
 import java.util.Scanner;
 
-public class TicTacToeInitiateGame implements InitiateGame{
+class TicTacToeInitiateGame implements InitiateGame{
 
+    /**
+     * @param game Reference to the Game.
+     * @param name Reference to player name (generated from user input prompt.)
+     * @return result of coin flip, in this case either a 0 or a 1, but to provide
+     * proper context to the player, these options are reframed to 1 for heads and
+     * 2 for tails.
+     */
     @Override
     public int initiateGame(Game game, String name) {
 
@@ -13,7 +20,7 @@ public class TicTacToeInitiateGame implements InitiateGame{
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nWould you like to view instructions for Tic Tac Toe?");
+        System.out.print("\nWould you like to view instructions for Tic Tac Toe ([y]es or [n]o)?");
         String viewInstructions = scanner.nextLine();
         while(!viewInstructions.toLowerCase().equals("y") && !viewInstructions.toLowerCase().equals("n") &&
                 !viewInstructions.toLowerCase().equals("yes") && !viewInstructions.toLowerCase().equals("no")) {
@@ -25,7 +32,7 @@ public class TicTacToeInitiateGame implements InitiateGame{
             System.out.println();
             displayInstructions();
         }
-        System.out.print("Lets flip a coin to see who goes first! Please choose [1]heads or [2]tails...");
+        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails...");
         String playerFlip = scanner.nextLine();
         while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
             System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
@@ -90,10 +97,10 @@ public class TicTacToeInitiateGame implements InitiateGame{
                 "      |     |      \n\n" +
                 "As you can see, squares that have not yet been selected are still designated as the \n" +
                 "number representative of that grid square. Selections that have been made replace\n" +
-                "the number associated with that grid square.");
+                "the number associated with that grid square.\n\n" );
 
         //Thread.sleep(6000);
 
-        System.out.print("Sound good? Lets play!");
+        System.out.println("Sound good? Lets play! \n \n");
     }
 }

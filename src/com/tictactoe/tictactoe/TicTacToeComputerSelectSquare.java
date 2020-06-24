@@ -2,11 +2,17 @@ package com.tictactoe.tictactoe;
 
 import java.util.*;
 
+/**
+ * Tic Tac Toe Family that implements computer SelectSquare behavior for Tic Tac Toe.
+ */
 public class TicTacToeComputerSelectSquare implements SelectSquare {
     private Set<Integer> possibleMoves;
     private Set<Integer> userMoves;
     private Set<Integer> computerMoves;
 
+    /**
+     * No idea...
+     */
     public TicTacToeComputerSelectSquare() {
         possibleMoves = new HashSet<>();
         possibleMoves.add(1);
@@ -22,6 +28,10 @@ public class TicTacToeComputerSelectSquare implements SelectSquare {
         computerMoves = new HashSet<>();
     }
 
+    /**
+     * @param squaresFilled can or cannot select square based on previous selections.
+     * @return win or block move.
+     */
     @Override
     public int selectSquare(Map<Integer, String> squaresFilled) {
         // identify set of possible moves

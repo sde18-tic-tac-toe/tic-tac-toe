@@ -3,6 +3,9 @@ package com.tictactoe.tictactoe;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class Game declares game parameters and behavior.
+ */
 public class Game {
     private static final int MIN_TURN_COUNT = 0;
     private static final int MAX_TURN_COUNT = 9;
@@ -14,6 +17,11 @@ public class Game {
     private final NextTurn nextTurn;
 
 
+    /**
+     * @param grid instantiates Tic Tac Toe grid.
+     * @param initiateGame instantiates Tic Tac Toe game.
+     * @param nextTurn references ENUM type that declares win/lose/draw.
+     */
     public Game(Grid grid, InitiateGame initiateGame,
                 NextTurn nextTurn) {
         players = new HashMap<>();
@@ -24,6 +32,9 @@ public class Game {
     }
 
 
+    /**
+     * @return grid and turnCount as defined in the Grid interface.
+     */
     public Map<Integer, Player> getPlayers() {
         return players;
     }
@@ -36,6 +47,10 @@ public class Game {
         return turnCount;
     }
 
+    /**
+     * @param turnCount ENUM parameter # of rounds playable in Tic Tac Toe.
+     * @throws TurnCountAssignmentException as described.
+     */
     public void setTurnCount(int turnCount) throws TurnCountAssignmentException {
         if(turnCount < MIN_TURN_COUNT || turnCount > MAX_TURN_COUNT) {
             throw new TurnCountAssignmentException("turn count must be greater than " +
@@ -44,10 +59,16 @@ public class Game {
         this.turnCount = turnCount;
     }
 
+    /**
+     * @return returns an instance of Game.
+     */
     public InitiateGame getInitiateGame() {
         return initiateGame;
     }
 
+    /**
+     * @return sets floor for turn count (0 to 9.)
+     */
     public NextTurn getNextTurn() {
         return nextTurn;
     }
