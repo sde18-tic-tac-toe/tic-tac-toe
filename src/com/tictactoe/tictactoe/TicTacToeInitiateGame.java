@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TicTacToeInitiateGame implements InitiateGame{
 
     @Override
-    public int initiateGame(Game game, String name) {
+    public void initiateGame(Game game, String name) {
 
         game.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare(),
                 new UserMakeWager()));
@@ -27,33 +27,34 @@ public class TicTacToeInitiateGame implements InitiateGame{
             System.out.println();
             displayInstructions();
         }
-        System.out.print("\nLets flip a coin to see who goes first! Please choose [1]heads or [2]tails... ");
-        String playerFlip = scanner.nextLine();
-        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
-            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
-            playerFlip = scanner.nextLine();
-        }
 
-        double flipResult = Math.random();
-        int coinFlipResult = 0;
-        if (flipResult <= 0.5 && playerFlip.equals("1")) {
-            System.out.println("The coin landed heads up! You're first!\n");
-            coinFlipResult = 1;
-        } else if
-        (flipResult > 0.5 && playerFlip.equals("1")) {
-            System.out.println("The coin landed tails up... You're going second.\n");
-            coinFlipResult = 2;
-        } else if
-        (flipResult >= 0.5 && playerFlip.equals("2")) {
-            System.out.println("The coin landed tails up! You're first!\n");
-            coinFlipResult = 1;
-        } else if
-        (flipResult < 0.5 && playerFlip.equals("2")) {
-            System.out.println("The coin landed heads up... You're going second.\n");
-            coinFlipResult = 2;
-        }
+//        System.out.print("\nLets flip a coin to see who goes first! Please choose [1]heads or [2]tails... ");
+//        String playerFlip = scanner.nextLine();
+//        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
+//            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
+//            playerFlip = scanner.nextLine();
+//        }
 
-        return coinFlipResult;
+//        double flipResult = Math.random();
+//        void coinFlipResult = 0;
+//        if (flipResult <= 0.5 && playerFlip.equals("1")) {
+//            System.out.println("The coin landed heads up! You're first!\n");
+//            coinFlipResult = 1;
+//        } else if
+//        (flipResult > 0.5 && playerFlip.equals("1")) {
+//            System.out.println("The coin landed tails up... You're going second.\n");
+//            coinFlipResult = 2;
+//        } else if
+//        (flipResult >= 0.5 && playerFlip.equals("2")) {
+//            System.out.println("The coin landed tails up! You're first!\n");
+//            coinFlipResult = 1;
+//        } else if
+//        (flipResult < 0.5 && playerFlip.equals("2")) {
+//            System.out.println("The coin landed heads up... You're going second.\n");
+//            coinFlipResult = 2;
+//        }
+//
+//        return coinFlipResult;
     }
 
     private void displayInstructions() {

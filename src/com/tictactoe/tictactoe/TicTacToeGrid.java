@@ -84,7 +84,7 @@ public class TicTacToeGrid implements Grid {
 
     public void displayGrid() {
         StringBuffer sb = new StringBuffer();
-        sb.append("     |     |     \n");
+        sb.append("\n     |     |     \n");
         sb.append("  ").append(getSquaresFilled().get(1)).
                 append("  |  ").append(getSquaresFilled().get(2)).
                 append("  |  ").append(getSquaresFilled().get(3)).

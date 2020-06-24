@@ -75,7 +75,7 @@ public class Player {
         return makeWager;
     }
 
-    public void setMakeWager(MakeWager makeWager) {
+    private void setMakeWager(MakeWager makeWager) {
         this.makeWager = makeWager;
     }
 }

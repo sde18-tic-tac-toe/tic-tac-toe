@@ -6,7 +6,7 @@ public class UserMakeWager implements MakeWager {
     @Override
     public int makeWager(Player player) {
         int wager = 0;
-        System.out.print("\nHow many points would you like to wager on this round? ");
+        System.out.print("How many points would you like to wager on this round? ");
         Scanner scanner = new Scanner(System.in);
         wager = scanner.nextInt();
         while(wager < 0 || (player.getWagerPoints() - wager < 0)) {

@@ -19,13 +19,30 @@ public class Client {
                 new TicTacToeEndInTie()), new TicTacToeInitiateGame(),
                 new TicTacToeNextTurn());
 
-        int coinFlipResult = new TicTacToeInitiateGame().initiateGame(game, name);
+        game.getInitiateGame().initiateGame(game, name);
 
         game.getGrid().displayGrid();
 
         TurnResult turnResult = TurnResult.CONTINUE;
         while (turnResult == TurnResult.CONTINUE) {
-            turnResult = game.getNextTurn().nextTurn(coinFlipResult, game);
+            // get wagers
+            int userWager = game.getPlayers().get(1).getMakeWager().makeWager(
+                    game.getPlayers().get(1));
+
+            int computerWager = game.getPlayers().get(2).getMakeWager().makeWager(
+                    game.getPlayers().get(2));
+
+            // highest wager takes next turn
+            int highestWager = 0;
+            if(userWager >= computerWager) {
+                System.out.println("You won the wager this round! Your turn.");
+                highestWager = 1;
+            } else {
+                System.out.println("You lost the wager this round. Computer takes this turn");
+                highestWager = 2;
+            }
+
+            turnResult = game.getNextTurn().nextTurn(highestWager, game);
         }
 
         if (turnResult == TurnResult.USER_WINS) {
