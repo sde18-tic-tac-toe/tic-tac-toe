@@ -23,20 +23,20 @@ public class Client {
 
         game.getGrid().displayGrid();
 
-        int turnResult = 0;
-        while (turnResult == 0) {
+        TurnResult turnResult = TurnResult.CONTINUE;
+        while (turnResult == TurnResult.CONTINUE) {
             turnResult = game.getNextTurn().nextTurn(coinFlipResult, game);
         }
 
-        if (turnResult == 1) {
+        if (turnResult == TurnResult.USER_WINS) {
             System.out.println("Congrats! You are the winner!");
-        } else if (turnResult == 2) {
+        } else if (turnResult == TurnResult.COMPUTER_WINS) {
             System.out.println("Sorry! You've been had...");
-        } else if (turnResult == 3) {
+        } else if (turnResult == TurnResult.DRAW) {
             System.out.println("Draw game!");
         }
 
-        System.out.println("Play again? [y]es or [n]o: ");
+        System.out.print("Play again? [y]es or [n]o: ");
         Scanner scanner = new Scanner(System.in);
         String playAgain = scanner.nextLine();
         while(!playAgain.toLowerCase().equals("y") && !playAgain.toLowerCase().equals("n") &&
@@ -46,7 +46,7 @@ public class Client {
         }
 
         if (playAgain.toLowerCase().equals("y")) {
-            System.out.println("Restart");
+            System.out.println();
             gameIteration(name);
         }
     }

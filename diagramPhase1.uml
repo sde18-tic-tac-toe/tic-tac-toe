@@ -3,40 +3,26 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1565.3300103305785" y="1001.0">com.tictactoe.tictactoe.TurnCountAssignmentException</node>
     <node x="1293.3300103305785" y="989.0">com.tictactoe.tictactoe.InitiateGame</node>
+    <node x="1565.3300103305785" y="1001.0">com.tictactoe.tictactoe.TurnCountAssignmentException</node>
     <node x="1153.8300103305785" y="1722.0">com.tictactoe.tictactoe.Client</node>
     <node x="1883.5767611176702" y="1608.0">com.tictactoe.tictactoe.TicTacToeNextTurn</node>
     <node x="1079.3300103305785" y="989.0">com.tictactoe.tictactoe.TicTacToeEndInTie</node>
-    <node x="1567.8300103305785" y="1210.0">com.tictactoe.tictactoe.Game</node>
     <node x="723.825" y="514.0">com.tictactoe.tictactoe.EvaluateWin</node>
+    <node x="1567.8300103305785" y="1210.0">com.tictactoe.tictactoe.Game</node>
     <node x="652.0" y="1352.0">com.tictactoe.tictactoe.TicTacToeEvaluateWin</node>
     <node x="389.663343663912" y="1608.0">com.tictactoe.tictactoe.TicTacToeInitiateGame</node>
     <node x="1869.3300103305785" y="989.0">com.tictactoe.tictactoe.NextTurn</node>
     <node x="0.0" y="257.0">com.tictactoe.tictactoe.UserSelectSquare</node>
-    <node x="416.12941263282175" y="0.0">com.tictactoe.tictactoe.SelectSquare</node>
+    <node x="366.82411098748355" y="197.22120658135285">com.tictactoe.tictactoe.SelectSquare</node>
     <node x="924.187745966155" y="798.0">com.tictactoe.tictactoe.EndInTieStrategy</node>
     <node x="947.875" y="618.0">com.tictactoe.tictactoe.Grid</node>
-    <node x="709.825" y="104.0">com.tictactoe.tictactoe.Player</node>
     <node x="332.0" y="1287.0">com.tictactoe.tictactoe.ComputerSelectSquare</node>
+    <node x="709.825" y="104.0">com.tictactoe.tictactoe.Player</node>
     <node x="668.3300103305785" y="902.0">com.tictactoe.tictactoe.TicTacToeGrid</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.tictactoe.tictactoe.Client" target="com.tictactoe.tictactoe.TicTacToeInitiateGame">
-      <point x="-91.71428571428578" y="-59.0" />
-      <point x="1169.1157246162927" y="1702.0" />
-      <point x="509.663343663912" y="1702.0" />
-      <point x="0.0" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Game" target="com.tictactoe.tictactoe.Player">
-      <point x="48.545454545454504" y="-169.0" />
-      <point x="1749.875464876033" y="1160.0" />
-      <point x="1858.8300103305785" y="1160.0" />
-      <point x="1858.8300103305785" y="484.0" />
-      <point x="963.6250000000002" y="484.0" />
-      <point x="112.80000000000007" y="180.0" />
-    </edge>
     <edge source="com.tictactoe.tictactoe.TicTacToeInitiateGame" target="com.tictactoe.tictactoe.InitiateGame">
       <point x="48.0" y="-27.0" />
       <point x="557.663343663912" y="1578.0" />
@@ -45,57 +31,17 @@
       <point x="1323.3300103305785" y="1190.0" />
       <point x="-90.0" y="27.0" />
     </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeEvaluateWin" target="com.tictactoe.tictactoe.Player">
-      <point x="-84.66666666666674" y="-27.0" />
-      <point x="694.3333333333333" y="1180.0" />
-      <point x="637.0679227338317" y="1180.0" />
-      <point x="637.0679227338317" y="494.0" />
-      <point x="794.4250000000002" y="494.0" />
-      <point x="-56.39999999999998" y="180.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.InitiateGame" target="com.tictactoe.tictactoe.Game">
-      <point x="90.0" y="27.0" />
-      <point x="1503.3300103305785" y="1170.0" />
-      <point x="1628.5118285123967" y="1170.0" />
-      <point x="-72.81818181818187" y="-169.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Game" target="com.tictactoe.tictactoe.Grid">
-      <point x="-48.545454545454504" y="-169.0" />
-      <point x="1652.784555785124" y="1160.0" />
-      <point x="1543.8300103305785" y="1160.0" />
-      <point x="1543.8300103305785" y="768.0" />
-      <point x="1178.125" y="768.0" />
-      <point x="76.75" y="60.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Grid" target="com.tictactoe.tictactoe.EndInTieStrategy">
-      <point x="-25.583333333333258" y="60.0" />
-      <point x="1075.7916666666667" y="778.0" />
-      <point x="1069.687745966155" y="778.0" />
-      <point x="48.5" y="-27.0" />
-    </edge>
     <edge source="com.tictactoe.tictactoe.TicTacToeGrid" target="com.tictactoe.tictactoe.Grid">
       <point x="0.0" y="-114.0" />
       <point x="863.8300103305785" y="768.0" />
       <point x="973.4583333333333" y="768.0" />
       <point x="-127.91666666666674" y="60.0" />
     </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeInitiateGame" target="com.tictactoe.tictactoe.ComputerSelectSquare">
-      <point x="0.0" y="-27.0" />
-      <point x="509.663343663912" y="1588.0" />
-      <point x="482.0" y="1588.0" />
-      <point x="0.0" y="92.0" />
-    </edge>
     <edge source="com.tictactoe.tictactoe.TicTacToeNextTurn" target="com.tictactoe.tictactoe.NextTurn">
       <point x="48.999999999999886" y="-27.0" />
       <point x="2030.5767611176702" y="1190.0" />
       <point x="2040.8300103305785" y="1190.0" />
       <point x="73.5" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.EndInTieStrategy" target="com.tictactoe.tictactoe.Grid">
-      <point x="-48.5" y="-27.0" />
-      <point x="972.687745966155" y="778.0" />
-      <point x="1024.625" y="778.0" />
-      <point x="-76.75" y="60.0" />
     </edge>
     <edge source="com.tictactoe.tictactoe.ComputerSelectSquare" target="com.tictactoe.tictactoe.SelectSquare">
       <point x="-75.0" y="-92.0" />
@@ -105,47 +51,11 @@
       <point x="528.6294126328218" y="84.0" />
       <point x="-37.5" y="27.0" />
     </edge>
-    <edge source="com.tictactoe.tictactoe.Client" target="com.tictactoe.tictactoe.TicTacToeEvaluateWin">
-      <point x="-61.14285714285711" y="-59.0" />
-      <point x="1199.6871531877214" y="1692.0" />
-      <point x="876.9287542634136" y="1692.0" />
-      <point x="876.9287542634136" y="1568.0" />
-      <point x="779.0" y="1568.0" />
-      <point x="0.0" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeGrid" target="com.tictactoe.tictactoe.EndInTieStrategy">
-      <point x="78.20000000000005" y="-114.0" />
-      <point x="942.0300103305785" y="882.0" />
-      <point x="956.5210792994883" y="882.0" />
-      <point x="-64.66666666666674" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Player" target="com.tictactoe.tictactoe.SelectSquare">
-      <point x="70.5" y="-180.0" />
-      <point x="921.325" y="74.0" />
-      <point x="678.6294126328218" y="74.0" />
-      <point x="112.5" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeEvaluateWin" target="com.tictactoe.tictactoe.TicTacToeGrid">
-      <point x="84.66666666666674" y="-27.0" />
-      <point x="0.0" y="114.0" />
-    </edge>
     <edge source="com.tictactoe.tictactoe.UserSelectSquare" target="com.tictactoe.tictactoe.SelectSquare">
       <point x="0.0" y="-27.0" />
       <point x="150.0" y="74.0" />
       <point x="453.62941263282175" y="74.0" />
       <point x="-112.5" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Client" target="com.tictactoe.tictactoe.TicTacToeNextTurn">
-      <point x="91.71428571428578" y="-59.0" />
-      <point x="1352.5442960448643" y="1702.0" />
-      <point x="1981.5767611176702" y="1702.0" />
-      <point x="0.0" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeInitiateGame" target="com.tictactoe.tictactoe.UserSelectSquare">
-      <point x="-96.0" y="-27.0" />
-      <point x="413.663343663912" y="1588.0" />
-      <point x="150.0" y="1588.0" />
-      <point x="0.0" y="27.0" />
     </edge>
     <edge source="com.tictactoe.tictactoe.TicTacToeEvaluateWin" target="com.tictactoe.tictactoe.EvaluateWin">
       <point x="0.0" y="-27.0" />
@@ -155,112 +65,14 @@
       <point x="755.575" y="593.0" />
       <point x="-95.25" y="27.0" />
     </edge>
-    <edge source="com.tictactoe.tictactoe.Game" target="com.tictactoe.tictactoe.TurnCountAssignmentException">
-      <point x="0.0" y="-169.0" />
-      <point x="0.0" y="15.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeInitiateGame" target="com.tictactoe.tictactoe.Game">
-      <point x="96.0" y="-27.0" />
-      <point x="605.663343663912" y="1588.0" />
-      <point x="1601.2050103305785" y="1588.0" />
-      <point x="-100.125" y="169.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Grid" target="com.tictactoe.tictactoe.EvaluateWin">
-      <point x="0.0" y="-60.0" />
-      <point x="1101.375" y="593.0" />
-      <point x="946.075" y="593.0" />
-      <point x="95.25" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Client" target="com.tictactoe.tictactoe.TicTacToeEndInTie">
-      <point x="0.0" y="-59.0" />
-      <point x="1260.8300103305785" y="1702.0" />
-      <point x="1243.0839310310903" y="1702.0" />
-      <point x="1243.0839310310903" y="1180.0" />
-      <point x="1176.3300103305785" y="1180.0" />
-      <point x="0.0" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Game" target="com.tictactoe.tictactoe.InitiateGame">
-      <point x="-121.36363636363637" y="-169.0" />
-      <point x="1579.9663739669422" y="1190.0" />
-      <point x="1383.3300103305785" y="1190.0" />
-      <point x="-30.0" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeInitiateGame" target="com.tictactoe.tictactoe.Player">
-      <point x="-48.0" y="-27.0" />
-      <point x="461.663343663912" y="1578.0" />
-      <point x="321.5" y="1578.0" />
-      <point x="321.5" y="484.0" />
-      <point x="738.0250000000001" y="484.0" />
-      <point x="-112.79999999999995" y="180.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Client" target="com.tictactoe.tictactoe.TicTacToeGrid">
-      <point x="-30.571428571428555" y="-59.0" />
-      <point x="1230.25858175915" y="1682.0" />
-      <point x="1069.9845894004984" y="1682.0" />
-      <point x="1069.9845894004984" y="1180.0" />
-      <point x="994.163343663912" y="1180.0" />
-      <point x="130.33333333333348" y="114.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeNextTurn" target="com.tictactoe.tictactoe.Game">
-      <point x="-49.0" y="-27.0" />
-      <point x="1932.5767611176702" y="1588.0" />
-      <point x="1801.4550103305785" y="1588.0" />
-      <point x="100.125" y="169.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.ComputerSelectSquare" target="com.tictactoe.tictactoe.TicTacToeGrid">
-      <point x="75.0" y="-92.0" />
-      <point x="557.0" y="1190.0" />
-      <point x="733.4966769972452" y="1190.0" />
-      <point x="-130.33333333333326" y="114.0" />
-    </edge>
     <edge source="com.tictactoe.tictactoe.TicTacToeEndInTie" target="com.tictactoe.tictactoe.EndInTieStrategy">
       <point x="-48.5" y="-27.0" />
       <point x="1127.8300103305785" y="882.0" />
       <point x="1085.8544126328218" y="882.0" />
       <point x="64.66666666666674" y="27.0" />
     </edge>
-    <edge source="com.tictactoe.tictactoe.NextTurn" target="com.tictactoe.tictactoe.Game">
-      <point x="24.5" y="27.0" />
-      <point x="1991.8300103305785" y="1190.0" />
-      <point x="1822.6936466942147" y="1190.0" />
-      <point x="121.36363636363637" y="-169.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Game" target="com.tictactoe.tictactoe.NextTurn">
-      <point x="97.09090909090912" y="-169.0" />
-      <point x="1798.4209194214877" y="1180.0" />
-      <point x="1942.8300103305785" y="1180.0" />
-      <point x="-24.5" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.Client" target="com.tictactoe.tictactoe.Game">
-      <point x="30.571428571428555" y="-59.0" />
-      <point x="1291.4014389020072" y="1682.0" />
-      <point x="1695.8300103305785" y="1682.0" />
-      <point x="1695.8300103305785" y="1588.0" />
-      <point x="1667.9550103305785" y="1588.0" />
-      <point x="-33.375" y="169.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeGrid" target="com.tictactoe.tictactoe.EvaluateWin">
-      <point x="-156.39999999999986" y="-114.0" />
-      <point x="707.4300103305786" y="872.0" />
-      <point x="841.3839310310902" y="872.0" />
-      <point x="841.3839310310902" y="593.0" />
-      <point x="819.075" y="593.0" />
-      <point x="-31.75" y="27.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.TicTacToeEndInTie" target="com.tictactoe.tictactoe.Grid">
-      <point x="48.5" y="-27.0" />
-      <point x="1224.8300103305785" y="882.0" />
-      <point x="1215.0679227338317" y="882.0" />
-      <point x="1215.0679227338317" y="778.0" />
-      <point x="1126.9583333333333" y="778.0" />
-      <point x="25.583333333333258" y="60.0" />
-    </edge>
-    <edge source="com.tictactoe.tictactoe.EvaluateWin" target="com.tictactoe.tictactoe.Player">
-      <point x="0.0" y="-27.0" />
-      <point x="0.0" y="180.0" />
-    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5881720430107527" x="935.4990859232176" y="1280.6489945155395" />
+  <settings layout="Hierarchic Group" zoom="0.5881720430107527" x="935.4990859232176" y="230.89213893967093" />
   <SelectedNodes>
     <node>com.tictactoe.tictactoe.SelectSquare</node>
   </SelectedNodes>
