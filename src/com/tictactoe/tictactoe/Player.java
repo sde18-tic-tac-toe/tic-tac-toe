@@ -7,14 +7,19 @@ public class Player {
     private String name;
     private String token;
     private long playerId;
+    private int wagerPoints;
     private Set<Integer> markers;
     private SelectSquare selectSquare;
+    private MakeWager makeWager;
 
-    public Player(String name, String token, long playerId, SelectSquare selectSquare) {
+    public Player(String name, String token, long playerId,
+                  SelectSquare selectSquare, MakeWager makeWager) {
         setName(name);
         setToken(token);
         setPlayerId(playerId);
         setSelectSquare(selectSquare);
+        setMakeWager(makeWager);
+        setWagerPoints(100);
         this.markers = new HashSet<>();
     }
 
@@ -52,5 +57,25 @@ public class Player {
 
     private void setSelectSquare(SelectSquare selectSquare) {
         this.selectSquare = selectSquare;
+    }
+
+    public int getWagerPoints() {
+        return wagerPoints;
+    }
+
+    public void setWagerPoints(int wagerPoints) {
+        if(wagerPoints < 0) {
+            this.wagerPoints = 0;
+        } else {
+            this.wagerPoints = wagerPoints;
+        }
+    }
+
+    public MakeWager getMakeWager() {
+        return makeWager;
+    }
+
+    public void setMakeWager(MakeWager makeWager) {
+        this.makeWager = makeWager;
     }
 }
