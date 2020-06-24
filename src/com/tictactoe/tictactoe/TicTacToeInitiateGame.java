@@ -2,7 +2,7 @@ package com.tictactoe.tictactoe;
 
 import java.util.Scanner;
 
-public class TicTacToeInitiateGame implements InitiateGame {
+public class TicTacToeInitiateGame implements InitiateGame{
 
     @Override
     public int initiateGame(Game game, String name) {
@@ -11,7 +11,50 @@ public class TicTacToeInitiateGame implements InitiateGame {
         game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2, new TicTacToeComputerSelectSquare()));
 
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("\nWould you like to view instructions for Tic Tac Toe?");
+        String viewInstructions = scanner.nextLine();
+        while(!viewInstructions.toLowerCase().equals("y") && !viewInstructions.toLowerCase().equals("n") &&
+                !viewInstructions.toLowerCase().equals("yes") && !viewInstructions.toLowerCase().equals("no")) {
+            System.out.print("Invalid selection. Please enter [y]es or [n]o: ");
+            viewInstructions = scanner.nextLine();
+        }
+
+        if (viewInstructions.toLowerCase().equals("y")) {
+            System.out.println();
+            displayInstructions();
+        }
+        System.out.print("Lets flip a coin to see who goes first! Please choose [1]heads or [2]tails...");
+        String playerFlip = scanner.nextLine();
+        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
+            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
+            playerFlip = scanner.nextLine();
+        }
+
+        double flipResult = Math.random();
+        int coinFlipResult = 0;
+        if (flipResult <= 0.5 && playerFlip.equals("1")) {
+            System.out.println("The coin landed heads up! You're first!\n");
+            coinFlipResult = 1;
+        } else if
+        (flipResult > 0.5 && playerFlip.equals("1")) {
+            System.out.println("The coin landed tails up... You're going second.\n");
+            coinFlipResult = 2;
+        } else if
+        (flipResult >= 0.5 && playerFlip.equals("2")) {
+            System.out.println("The coin landed tails up! You're first!\n");
+            coinFlipResult = 1;
+        } else if
+        (flipResult < 0.5 && playerFlip.equals("2")) {
+            System.out.println("The coin landed heads up... You're going second.\n");
+            coinFlipResult = 2;
+        }
+
+        return coinFlipResult;
+    }
+
+    private void displayInstructions() {
         System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
 
                 "      |     |     \n" +
@@ -51,34 +94,6 @@ public class TicTacToeInitiateGame implements InitiateGame {
 
         //Thread.sleep(6000);
 
-        System.out.print("Sound good? Lets play! \n\n" +
-                "Please select [1] for heads or [2] for tails to see who goes first! ");
-        Scanner scanner = new Scanner(System.in);
-        String playerFlip = scanner.nextLine();
-        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
-            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
-            playerFlip = scanner.nextLine();
-        }
-
-        double flipResult = Math.random();
-        int coinFlipResult = 0;
-        if (flipResult <= 0.5 && playerFlip.equals("1")) {
-            System.out.println("The coin landed heads up! You're first!\n");
-            coinFlipResult = 1;
-        } else if
-        (flipResult > 0.5 && playerFlip.equals("1")) {
-            System.out.println("The coin landed tails up... You're going second.\n");
-            coinFlipResult = 2;
-        } else if
-        (flipResult >= 0.5 && playerFlip.equals("2")) {
-            System.out.println("The coin landed tails up! You're first!\n");
-            coinFlipResult = 1;
-        } else if
-        (flipResult < 0.5 && playerFlip.equals("2")) {
-            System.out.println("The coin landed heads up... You're going second.\n");
-            coinFlipResult = 2;
-        }
-
-        return coinFlipResult;
+        System.out.print("Sound good? Lets play!");
     }
 }
