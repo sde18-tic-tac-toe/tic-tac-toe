@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class ComputerSelectSquareTest {
+public class TicTacToeComputerSelectSquareTest {
 
     Map<Integer, String> squaresFilled;
     Player computer;
@@ -27,7 +27,7 @@ public class ComputerSelectSquareTest {
             put(9, " ");
         }};
         computer = new Player("TicTac", "O", 2,
-                new ComputerSelectSquare());
+                new TicTacToeComputerSelectSquare());
     }
 
     @Test
