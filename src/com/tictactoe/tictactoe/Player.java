@@ -8,13 +8,13 @@ public class Player {
     private String token;
     private long playerId;
     private Set<Integer> markers;
-    private SelectSquareStrategy selectSquareStrategy;
+    private SelectSquare selectSquare;
 
-    public Player(String name, String token, long playerId, SelectSquareStrategy selectSquareStrategy) {
+    public Player(String name, String token, long playerId, SelectSquare selectSquare) {
         setName(name);
         setToken(token);
         setPlayerId(playerId);
-        setSelectSquareStrategy(selectSquareStrategy);
+        setSelectSquare(selectSquare);
         this.markers = new HashSet<>();
     }
 
@@ -46,11 +46,11 @@ public class Player {
         return markers;
     }
 
-    public SelectSquareStrategy getSelectSquareStrategy() {
-        return selectSquareStrategy;
+    public SelectSquare getSelectSquare() {
+        return selectSquare;
     }
 
-    private void setSelectSquareStrategy(SelectSquareStrategy selectSquareStrategy) {
-        this.selectSquareStrategy = selectSquareStrategy;
+    private void setSelectSquare(SelectSquare selectSquare) {
+        this.selectSquare = selectSquare;
     }
 }

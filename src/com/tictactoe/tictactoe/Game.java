@@ -8,18 +8,18 @@ public class Game {
     private static final int MAX_TURN_COUNT = 9;
 
     private final Map<Integer, Player> players;
-    private final GridStrategy gridStrategy;
+    private final Grid grid;
     private int turnCount;
-    private final InitiateGameStrategy initiateGameStrategy;
-    private final NextTurnStrategy nextTurnStrategy;
+    private final InitiateGame initiateGame;
+    private final NextTurn nextTurn;
 
 
-    public Game(GridStrategy gridStrategy, InitiateGameStrategy initiateGameStrategy,
-                NextTurnStrategy nextTurnStrategy) {
+    public Game(Grid grid, InitiateGame initiateGame,
+                NextTurn nextTurn) {
         players = new HashMap<>();
-        this.gridStrategy = gridStrategy;
-        this.initiateGameStrategy = initiateGameStrategy;
-        this.nextTurnStrategy = nextTurnStrategy;
+        this.grid = grid;
+        this.initiateGame = initiateGame;
+        this.nextTurn = nextTurn;
         turnCount = 0;
     }
 
@@ -28,8 +28,8 @@ public class Game {
         return players;
     }
 
-    public GridStrategy getGridStrategy() {
-        return gridStrategy;
+    public Grid getGrid() {
+        return grid;
     }
 
     public int getTurnCount() {
@@ -44,11 +44,11 @@ public class Game {
         this.turnCount = turnCount;
     }
 
-    public InitiateGameStrategy getInitiateGameStrategy() {
-        return initiateGameStrategy;
+    public InitiateGame getInitiateGame() {
+        return initiateGame;
     }
 
-    public NextTurnStrategy getNextTurnStrategy() {
-        return nextTurnStrategy;
+    public NextTurn getNextTurn() {
+        return nextTurn;
     }
 }

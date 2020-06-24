@@ -3,7 +3,7 @@ package com.tictactoe.tictactoe;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TicTacToeGrid implements GridStrategy {
+public class TicTacToeGrid implements Grid {
     public static Map<Integer, Map<Integer, Integer>> winPossibilities = new HashMap<>() {{
         put(1, new HashMap<>() {{
             put(2, 3);
@@ -50,10 +50,10 @@ public class TicTacToeGrid implements GridStrategy {
     }};
 
     private final Map<Integer, String> squaresFilled;
-    private final EvaluateWinStrategy evaluateWinStrategy;
+    private final EvaluateWin evaluateWin;
     private final EndInTieStrategy endInTieStrategy;
 
-    public TicTacToeGrid(EvaluateWinStrategy evaluateWinStrategy,
+    public TicTacToeGrid(EvaluateWin evaluateWin,
                          EndInTieStrategy endInTieStrategy) {
         squaresFilled = new HashMap<>() {{
             put(1, " ");
@@ -66,7 +66,7 @@ public class TicTacToeGrid implements GridStrategy {
             put(8, " ");
             put(9, " ");
         }};
-        this.evaluateWinStrategy = evaluateWinStrategy;
+        this.evaluateWin = evaluateWin;
         this.endInTieStrategy = endInTieStrategy;
     }
 
@@ -74,8 +74,8 @@ public class TicTacToeGrid implements GridStrategy {
         return squaresFilled;
     }
 
-    public EvaluateWinStrategy getEvaluateWinStrategy() {
-        return evaluateWinStrategy;
+    public EvaluateWin getEvaluateWin() {
+        return evaluateWin;
     }
 
     public EndInTieStrategy getEndInTieStrategy() {
@@ -83,15 +83,24 @@ public class TicTacToeGrid implements GridStrategy {
     }
 
     public void displayGrid() {
-        System.out.println("-------");
-        for(int square = 1; square < 10; square = square + 3) {
-            StringBuffer sb = new StringBuffer();
-            sb.append("|").append(getSquaresFilled().get(square)).
-                    append("|").append(getSquaresFilled().get(square + 1)).
-                    append("|").append(getSquaresFilled().get(square + 2)).
-                    append("|");
-            System.out.println(sb);
-            System.out.println("-------");
-        }
+        StringBuffer sb = new StringBuffer();
+        sb.append("     |     |     \n");
+        sb.append("  ").append(getSquaresFilled().get(1)).
+                append("  |  ").append(getSquaresFilled().get(2)).
+                append("  |  ").append(getSquaresFilled().get(3)).
+                append("\n");
+        sb.append("_____|_____|_____\n");
+        sb.append("     |     |     \n");
+        sb.append("  ").append(getSquaresFilled().get(4)).
+                append("  |  ").append(getSquaresFilled().get(5)).
+                append("  |  ").append(getSquaresFilled().get(6)).
+                append("\n");
+        sb.append("_____|_____|_____\n");
+        sb.append("     |     |     \n");
+        sb.append("  ").append(getSquaresFilled().get(7)).
+                append("  |  ").append(getSquaresFilled().get(8)).
+                append("  |  ").append(getSquaresFilled().get(9)).
+                append("\n");
+        System.out.println(sb);
     }
 }

@@ -1,6 +1,6 @@
 package com.tictactoe.tictactoe;
 
-public class TicTacToeNextTurn implements NextTurnStrategy{
+public class TicTacToeNextTurn implements NextTurn {
 
     /**
      * Tic Tac Toe implementation of nextTurn().
@@ -15,27 +15,27 @@ public class TicTacToeNextTurn implements NextTurnStrategy{
 
         int selectedSquare;
         // coin toss player goes first
-        selectedSquare = game.getPlayers().get(firstPlayer).getSelectSquareStrategy().
-                selectSquare(game.getGridStrategy().getSquaresFilled());
+        selectedSquare = game.getPlayers().get(firstPlayer).getSelectSquare().
+                selectSquare(game.getGrid().getSquaresFilled());
 
         // update grid squaresFilled
-        game.getGridStrategy().getSquaresFilled().put(selectedSquare, game.getPlayers().get(firstPlayer).getToken());
+        game.getGrid().getSquaresFilled().put(selectedSquare, game.getPlayers().get(firstPlayer).getToken());
 
         // update firstPlayer markers
         game.getPlayers().get(firstPlayer).getMarkers().add(selectedSquare);
 
         // display board
-        game.getGridStrategy().displayGrid();
+        game.getGrid().displayGrid();
 
         // if we have a winner, return first player
-        if(game.getGridStrategy().getEvaluateWinStrategy().evaluateWin(
+        if(game.getGrid().getEvaluateWin().evaluateWin(
                 game.getPlayers().get(firstPlayer),
                 selectedSquare)) {
             return firstPlayer;
         }
 
         // if we end in tie
-        if(game.getGridStrategy().getEndInTieStrategy().endInTie(game.getGridStrategy())) {
+        if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
             return 3;
         }
 
@@ -48,27 +48,27 @@ public class TicTacToeNextTurn implements NextTurnStrategy{
         }
 
         // get otherPlayer selectedSquare
-        selectedSquare = game.getPlayers().get(otherPlayer).getSelectSquareStrategy().
-                selectSquare(game.getGridStrategy().getSquaresFilled());
+        selectedSquare = game.getPlayers().get(otherPlayer).getSelectSquare().
+                selectSquare(game.getGrid().getSquaresFilled());
 
         // update grid squaresFilled
-        game.getGridStrategy().getSquaresFilled().put(selectedSquare, game.getPlayers().get(otherPlayer).getToken());
+        game.getGrid().getSquaresFilled().put(selectedSquare, game.getPlayers().get(otherPlayer).getToken());
 
         // update firstPlayer markers
         game.getPlayers().get(otherPlayer).getMarkers().add(selectedSquare);
 
         // display board
-        game.getGridStrategy().displayGrid();
+        game.getGrid().displayGrid();
 
         // if we have a winner, return first player
-        if(game.getGridStrategy().getEvaluateWinStrategy().evaluateWin(
-                game.getPlayers().get(firstPlayer),
+        if(game.getGrid().getEvaluateWin().evaluateWin(
+                game.getPlayers().get(otherPlayer),
                 selectedSquare)) {
-            return firstPlayer;
+            return otherPlayer;
         }
 
         // if we end in tie
-        if(game.getGridStrategy().getEndInTieStrategy().endInTie(game.getGridStrategy())) {
+        if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
             return 3;
         }
 
