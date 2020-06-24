@@ -2,12 +2,12 @@ package com.tictactoe.tictactoe;
 
 import java.util.*;
 
-public class ComputerSelectSquare implements SelectSquare {
+public class TicTacToeComputerSelectSquare implements SelectSquare {
     private Set<Integer> possibleMoves;
     private Set<Integer> userMoves;
     private Set<Integer> computerMoves;
 
-    public ComputerSelectSquare() {
+    public TicTacToeComputerSelectSquare() {
         possibleMoves = new HashSet<>();
         possibleMoves.add(1);
         possibleMoves.add(2);

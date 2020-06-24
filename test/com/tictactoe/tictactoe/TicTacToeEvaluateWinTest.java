@@ -9,7 +9,7 @@ public class TicTacToeEvaluateWinTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        player = new Player("Chase", "X", 1, new UserSelectSquare());
+        player = new Player("Chase", "X", 1, new TicTacToeUserSelectSquare());
         evaluateWin = new TicTacToeEvaluateWin();
     }
 
