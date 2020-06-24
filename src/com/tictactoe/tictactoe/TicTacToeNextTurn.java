@@ -5,33 +5,33 @@ public class TicTacToeNextTurn implements NextTurn {
     /**
      * Tic Tac Toe implementation of nextTurn().
      * @param firstPlayer The player who won the coin toss.
-     * @param ticTacToeGame Reference to the TicTacToeGame.
+     * @param game Reference to the Game.
      * @return Possible outcomes: 0 = no winner and no tie,
      * 1 = firstPlayer wins, 2 = other player wins,
-     * 3 = ticTacToeGame ends in tie
+     * 3 = game ends in tie
      */
     @Override
-    public TurnResult nextTurn(int firstPlayer, TicTacToeGame ticTacToeGame) {
+    public TurnResult nextTurn(int firstPlayer, Game game) {
 
         int selectedSquare;
         // coin toss player goes first
-        selectedSquare = ticTacToeGame.getPlayers().get(firstPlayer).getSelectSquare().
-                selectSquare(ticTacToeGame.getGrid().getSquaresFilled());
+        selectedSquare = game.getPlayers().get(firstPlayer).getSelectSquare().
+                selectSquare(game.getGrid().getSquaresFilled());
 
         // update grid squaresFilled
-        ticTacToeGame.getGrid().getSquaresFilled().put(selectedSquare, ticTacToeGame.getPlayers().get(firstPlayer).getToken());
+        game.getGrid().getSquaresFilled().put(selectedSquare, game.getPlayers().get(firstPlayer).getToken());
 
         // update firstPlayer markers
-        ticTacToeGame.getPlayers().get(firstPlayer).getMarkers().add(selectedSquare);
+        game.getPlayers().get(firstPlayer).getMarkers().add(selectedSquare);
 
         // display board
-        ticTacToeGame.getGrid().displayGrid();
+        game.getGrid().displayGrid();
 
         // if we have a winner, return first player
-        if(ticTacToeGame.getGrid().getEvaluateWin().evaluateWin(
-                ticTacToeGame.getPlayers().get(firstPlayer),
+        if(game.getGrid().getEvaluateWin().evaluateWin(
+                game.getPlayers().get(firstPlayer),
                 selectedSquare)) {
-            if(ticTacToeGame.getPlayers().get(firstPlayer).getPlayerId() == 1) {
+            if(game.getPlayers().get(firstPlayer).getPlayerId() == 1) {
                 return TurnResult.USER_WINS;
             } else {
                 return TurnResult.COMPUTER_WINS;
@@ -39,7 +39,7 @@ public class TicTacToeNextTurn implements NextTurn {
         }
 
         // if we end in tie
-        if(ticTacToeGame.getGrid().getEndInTieStrategy().endInTie(ticTacToeGame.getGrid())) {
+        if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
             return TurnResult.DRAW;
         }
 
@@ -52,23 +52,23 @@ public class TicTacToeNextTurn implements NextTurn {
 //        }
 //
 //        // get otherPlayer selectedSquare
-//        selectedSquare = ticTacToeGame.getPlayers().get(otherPlayer).getSelectSquare().
-//                selectSquare(ticTacToeGame.getGrid().getSquaresFilled());
+//        selectedSquare = game.getPlayers().get(otherPlayer).getSelectSquare().
+//                selectSquare(game.getGrid().getSquaresFilled());
 //
 //        // update grid squaresFilled
-//        ticTacToeGame.getGrid().getSquaresFilled().put(selectedSquare, ticTacToeGame.getPlayers().get(otherPlayer).getToken());
+//        game.getGrid().getSquaresFilled().put(selectedSquare, game.getPlayers().get(otherPlayer).getToken());
 //
 //        // update firstPlayer markers
-//        ticTacToeGame.getPlayers().get(otherPlayer).getMarkers().add(selectedSquare);
+//        game.getPlayers().get(otherPlayer).getMarkers().add(selectedSquare);
 //
 //        // display board
-//        ticTacToeGame.getGrid().displayGrid();
+//        game.getGrid().displayGrid();
 //
 //        // if we have a winner, return other player
-//        if(ticTacToeGame.getGrid().getEvaluateWin().evaluateWin(
-//                ticTacToeGame.getPlayers().get(otherPlayer),
+//        if(game.getGrid().getEvaluateWin().evaluateWin(
+//                game.getPlayers().get(otherPlayer),
 //                selectedSquare)) {
-//            if(ticTacToeGame.getPlayers().get(otherPlayer).getPlayerId() == 1) {
+//            if(game.getPlayers().get(otherPlayer).getPlayerId() == 1) {
 //                return TurnResult.USER_WINS;
 //            } else {
 //                return TurnResult.COMPUTER_WINS;
@@ -76,7 +76,7 @@ public class TicTacToeNextTurn implements NextTurn {
 //        }
 //
 //        // if we end in tie
-//        if(ticTacToeGame.getGrid().getEndInTieStrategy().endInTie(ticTacToeGame.getGrid())) {
+//        if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
 //            return TurnResult.DRAW;
 //        }
 
