@@ -13,7 +13,7 @@ public class TicTacToeInitiateGame implements InitiateGame{
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nWould you like to view instructions for Tic Tac Toe?");
+        System.out.print("\nWould you like to view instructions for Tic Tac Toe ([y]es or [n]o)?");
         String viewInstructions = scanner.nextLine();
         while(!viewInstructions.toLowerCase().equals("y") && !viewInstructions.toLowerCase().equals("n") &&
                 !viewInstructions.toLowerCase().equals("yes") && !viewInstructions.toLowerCase().equals("no")) {
@@ -25,7 +25,7 @@ public class TicTacToeInitiateGame implements InitiateGame{
             System.out.println();
             displayInstructions();
         }
-        System.out.print("Lets flip a coin to see who goes first! Please choose [1]heads or [2]tails...");
+        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails...");
         String playerFlip = scanner.nextLine();
         while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
             System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
@@ -94,6 +94,6 @@ public class TicTacToeInitiateGame implements InitiateGame{
 
         //Thread.sleep(6000);
 
-        System.out.print("Sound good? Lets play!");
+        System.out.println("Sound good? Lets play!");
     }
 }
