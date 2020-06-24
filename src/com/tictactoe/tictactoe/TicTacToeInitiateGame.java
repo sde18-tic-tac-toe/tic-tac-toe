@@ -12,7 +12,7 @@ public class TicTacToeInitiateGame implements InitiateGame {
 
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
 
-        System.out.println("Here is the game board... Note that each grid square is represented by a number.\n" +
+        System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
 
                 "      |     |     \n" +
                 "   1  |  2  |  3  \n" +
@@ -34,7 +34,7 @@ public class TicTacToeInitiateGame implements InitiateGame {
 
         //Thread.sleep(10000);
 
-        System.out.println("Here is an example of a winning combination after 5 turns: \n" +
+        System.out.println("Here is an example of a winning combination after 5 turns: \n\n" +
 
                 "      |     |     \n" +
                 "   X  |  O  |  O  \n" +
@@ -44,33 +44,33 @@ public class TicTacToeInitiateGame implements InitiateGame {
                 " _____|_____|_____\n" +
                 "      |     |     \n" +
                 "   7  |  8  |  X  \n" +
-                "      |     |      \n" +
+                "      |     |      \n\n" +
                 "As you can see, squares that have not yet been selected are still designated as the \n" +
                 "number representative of that grid square. Selections that have been made replace\n" +
                 "the number associated with that grid square.");
 
         //Thread.sleep(6000);
 
-        System.out.println("Sound good? Lets play! \n" +
-                "Please select [1]heads or [2]tails to see who goes first!");
+        System.out.print("Sound good? Lets play! \n\n" +
+                "Please select [1]heads or [2]tails to see who goes first! ");
         Scanner scanner = new Scanner(System.in);
         String playerFlip = scanner.nextLine();
         double flipResult = Math.random();
         int coinFlipResult = 0;
         if (flipResult <= 0.5 && playerFlip.equals("1")) {
-            System.out.println("The coin landed heads up! You're first!");
+            System.out.println("The coin landed heads up! You're first!\n");
             coinFlipResult = 1;
         } else if
         (flipResult > 0.5 && playerFlip.equals("1")) {
-            System.out.println("The coin landed tails up... You're going second.");
+            System.out.println("The coin landed tails up... You're going second.\n");
             coinFlipResult = 2;
         } else if
         (flipResult >= 0.5 && playerFlip.equals("2")) {
-            System.out.println("The coin landed tails up! You're first!");
+            System.out.println("The coin landed tails up! You're first!\n");
             coinFlipResult = 1;
         } else if
         (flipResult < 0.5 && playerFlip.equals("2")) {
-            System.out.println("The coin landed heads up... You're going second.");
+            System.out.println("The coin landed heads up... You're going second.\n");
             coinFlipResult = 2;
         }
 

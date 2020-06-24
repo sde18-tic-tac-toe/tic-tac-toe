@@ -83,15 +83,24 @@ public class TicTacToeGrid implements Grid {
     }
 
     public void displayGrid() {
-        System.out.println("-------");
-        for(int square = 1; square < 10; square = square + 3) {
-            StringBuffer sb = new StringBuffer();
-            sb.append("|").append(getSquaresFilled().get(square)).
-                    append("|").append(getSquaresFilled().get(square + 1)).
-                    append("|").append(getSquaresFilled().get(square + 2)).
-                    append("|");
-            System.out.println(sb);
-            System.out.println("-------");
-        }
+        StringBuffer sb = new StringBuffer();
+        sb.append("     |     |     \n");
+        sb.append("  ").append(getSquaresFilled().get(1)).
+                append("  |  ").append(getSquaresFilled().get(2)).
+                append("  |  ").append(getSquaresFilled().get(3)).
+                append("\n");
+        sb.append("_____|_____|_____\n");
+        sb.append("     |     |     \n");
+        sb.append("  ").append(getSquaresFilled().get(4)).
+                append("  |  ").append(getSquaresFilled().get(5)).
+                append("  |  ").append(getSquaresFilled().get(6)).
+                append("\n");
+        sb.append("_____|_____|_____\n");
+        sb.append("     |     |     \n");
+        sb.append("  ").append(getSquaresFilled().get(7)).
+                append("  |  ").append(getSquaresFilled().get(8)).
+                append("  |  ").append(getSquaresFilled().get(9)).
+                append("\n");
+        System.out.println(sb);
     }
 }

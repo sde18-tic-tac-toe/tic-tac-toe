@@ -8,17 +8,10 @@ public class Client {
 
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome, player 1! Please enter your name: ");
+        System.out.print("\nWelcome, player 1! Please enter your name: ");
         String name = scanner.nextLine();
 
         gameIteration(name);
-
-        System.out.println("Play again? [y]yes or [n]no");
-        String playAgain = scanner.nextLine();
-        if (playAgain.equals("y")) {
-            System.out.println("Restart");
-            gameIteration(name);
-        }
     }
 
     private static void gameIteration(String name) {
@@ -27,6 +20,8 @@ public class Client {
                 new TicTacToeNextTurn());
 
         int coinFlipResult = new TicTacToeInitiateGame().initiateGame(game, name);
+
+        game.getGrid().displayGrid();
 
         int turnResult = 0;
         while (turnResult == 0) {
@@ -39,6 +34,14 @@ public class Client {
             System.out.println("Sorry! You've been had...");
         } else if (turnResult == 3) {
             System.out.println("Draw game!");
+        }
+
+        System.out.println("Play again? [y]yes or [n]no");
+        Scanner scanner = new Scanner(System.in);
+        String playAgain = scanner.nextLine();
+        if (playAgain.equals("y")) {
+            System.out.println("Restart");
+            gameIteration(name);
         }
     }
 }

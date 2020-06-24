@@ -1,9 +1,6 @@
 package com.tictactoe.tictactoe;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ComputerSelectSquare implements SelectSquare {
     private Set<Integer> possibleMoves;
@@ -96,7 +93,16 @@ public class ComputerSelectSquare implements SelectSquare {
                 }
             }
         }
-        // if no two squares in line available, select next possible move
+        // thank you: https://stackoverflow.com/questions/124671/picking-a-random-element-from-a-set
+        // if no two squares in line available, select random possible move
+        int possibleMovesSize = possibleMoves.size();
+        int item = new Random().nextInt(possibleMovesSize);
+        int i = 0;
+        for(Integer possibleMove : possibleMoves) {
+            if(i == item) return possibleMove;
+            i++;
+        }
+
         Iterator<Integer> nextPossibility = possibleMoves.iterator();
         return nextPossibility.next();
     }
