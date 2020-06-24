@@ -97,10 +97,10 @@ class TicTacToeInitiateGame implements InitiateGame{
                 "      |     |      \n\n" +
                 "As you can see, squares that have not yet been selected are still designated as the \n" +
                 "number representative of that grid square. Selections that have been made replace\n" +
-                "the number associated with that grid square.");
+                "the number associated with that grid square.\n\n" );
 
         //Thread.sleep(6000);
 
-        System.out.println("Sound good? Lets play!");
+        System.out.println("Sound good? Lets play! \n \n");
     }
 }
