@@ -2,10 +2,11 @@ package com.tictactoe.tictactoe;
 
 import java.util.Map;
 
-public class TicTacToeEvaluateWin implements EvaluateWinStrategy{
+public class TicTacToeEvaluateWin implements EvaluateWin {
     @Override
     public boolean evaluateWin(Player player,
                                int lastPlacedToken) {
+
         boolean result = false;
         if(player.getMarkers().size() > 2) {
             Map<Integer, Integer> subMap = TicTacToeGrid.winPossibilities.get(lastPlacedToken);
