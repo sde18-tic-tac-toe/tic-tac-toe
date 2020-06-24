@@ -2,8 +2,15 @@ package com.tictactoe.tictactoe;
 
 import java.util.Scanner;
 
-public class TicTacToeInitiateGame implements InitiateGame{
+class TicTacToeInitiateGame implements InitiateGame{
 
+    /**
+     * @param game Reference to the Game.
+     * @param name Reference to player name (generated from user input prompt.)
+     * @return result of coin flip, in this case either a 0 or a 1, but to provide
+     * proper context to the player, these options are reframed to 1 for heads and
+     * 2 for tails.
+     */
     @Override
     public int initiateGame(Game game, String name) {
 

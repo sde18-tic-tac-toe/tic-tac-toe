@@ -2,7 +2,15 @@ package com.tictactoe.tictactoe;
 
 import java.util.Map;
 
+/**
+ * Tic Tac Toe Family that determines, if there is a winner, who won Tic Tac Toe game.
+ */
 public class TicTacToeEvaluateWin implements EvaluateWin {
+    /**
+     * @param player          references Player.
+     * @param lastPlacedToken checks placement of last token against win/loss/draw conclusions.
+     * @return false until evaluation parameters herein for win are met, where result is true.
+     */
     @Override
     public boolean evaluateWin(Player player,
                                int lastPlacedToken) {

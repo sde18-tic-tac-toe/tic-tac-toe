@@ -3,6 +3,9 @@ package com.tictactoe.tictactoe;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Player class identifies player attributes.
+ */
 public class Player {
     private String name;
     private String token;
@@ -10,6 +13,12 @@ public class Player {
     private Set<Integer> markers;
     private SelectSquare selectSquare;
 
+    /**
+     * @param name player name.
+     * @param token sets player token to "X".
+     * @param playerId ??
+     * @param selectSquare sets value in SelectSquare in accordance with player selection.
+     */
     public Player(String name, String token, long playerId, SelectSquare selectSquare) {
         setName(name);
         setToken(token);
