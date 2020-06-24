@@ -11,7 +11,7 @@ public class TicTacToeNextTurn implements NextTurn {
      * 3 = game ends in tie
      */
     @Override
-    public int nextTurn(int firstPlayer, Game game) {
+    public TurnResult nextTurn(int firstPlayer, Game game) {
 
         int selectedSquare;
         // coin toss player goes first
@@ -31,12 +31,16 @@ public class TicTacToeNextTurn implements NextTurn {
         if(game.getGrid().getEvaluateWin().evaluateWin(
                 game.getPlayers().get(firstPlayer),
                 selectedSquare)) {
-            return firstPlayer;
+            if(game.getPlayers().get(firstPlayer).getPlayerId() == 1) {
+                return TurnResult.USER_WINS;
+            } else {
+                return TurnResult.COMPUTER_WINS;
+            }
         }
 
         // if we end in tie
         if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
-            return 3;
+            return TurnResult.DRAW;
         }
 
         // get other player number
@@ -60,18 +64,22 @@ public class TicTacToeNextTurn implements NextTurn {
         // display board
         game.getGrid().displayGrid();
 
-        // if we have a winner, return first player
+        // if we have a winner, return other player
         if(game.getGrid().getEvaluateWin().evaluateWin(
                 game.getPlayers().get(otherPlayer),
                 selectedSquare)) {
-            return otherPlayer;
+            if(game.getPlayers().get(otherPlayer).getPlayerId() == 1) {
+                return TurnResult.USER_WINS;
+            } else {
+                return TurnResult.COMPUTER_WINS;
+            }
         }
 
         // if we end in tie
         if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
-            return 3;
+            return TurnResult.DRAW;
         }
 
-        return 0;
+        return TurnResult.CONTINUE;
     }
 }
