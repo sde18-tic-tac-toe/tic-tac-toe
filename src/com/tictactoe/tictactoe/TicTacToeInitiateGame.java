@@ -52,9 +52,14 @@ public class TicTacToeInitiateGame implements InitiateGame {
         //Thread.sleep(6000);
 
         System.out.print("Sound good? Lets play! \n\n" +
-                "Please select [1]heads or [2]tails to see who goes first! ");
+                "Please select [1] for heads or [2] for tails to see who goes first! ");
         Scanner scanner = new Scanner(System.in);
         String playerFlip = scanner.nextLine();
+        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
+            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
+            playerFlip = scanner.nextLine();
+        }
+
         double flipResult = Math.random();
         int coinFlipResult = 0;
         if (flipResult <= 0.5 && playerFlip.equals("1")) {

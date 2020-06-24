@@ -36,10 +36,16 @@ public class Client {
             System.out.println("Draw game!");
         }
 
-        System.out.println("Play again? [y]yes or [n]no");
+        System.out.println("Play again? [y]es or [n]o: ");
         Scanner scanner = new Scanner(System.in);
         String playAgain = scanner.nextLine();
-        if (playAgain.equals("y")) {
+        while(!playAgain.toLowerCase().equals("y") && !playAgain.toLowerCase().equals("n") &&
+              !playAgain.toLowerCase().equals("yes") && !playAgain.toLowerCase().equals("no")) {
+            System.out.print("Invalid selection. Please enter [y]es or [n]o: ");
+            playAgain = scanner.nextLine();
+        }
+
+        if (playAgain.toLowerCase().equals("y")) {
             System.out.println("Restart");
             gameIteration(name);
         }
