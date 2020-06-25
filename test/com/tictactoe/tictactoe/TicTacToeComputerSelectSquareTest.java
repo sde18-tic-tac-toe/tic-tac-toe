@@ -27,7 +27,7 @@ public class TicTacToeComputerSelectSquareTest {
             put(9, " ");
         }};
         computer = new Player("TicTac", "O", 2,
-                new TicTacToeComputerSelectSquare());
+                new TicTacToeComputerSelectSquare(), new ComputerMakeWager());
     }
 
     @Test

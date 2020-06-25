@@ -15,6 +15,7 @@ public class Game {
     private int turnCount;
     private final InitiateGame initiateGame;
     private final NextTurn nextTurn;
+    private final boolean wagerGame;
 
 
     /**
@@ -23,12 +24,13 @@ public class Game {
      * @param nextTurn references ENUM type that declares win/lose/draw.
      */
     public Game(Grid grid, InitiateGame initiateGame,
-                NextTurn nextTurn) {
+                NextTurn nextTurn, boolean wagerGame) {
         players = new HashMap<>();
         this.grid = grid;
         this.initiateGame = initiateGame;
         this.nextTurn = nextTurn;
         turnCount = 0;
+        this.wagerGame = wagerGame;
     }
 
 
@@ -71,5 +73,9 @@ public class Game {
      */
     public NextTurn getNextTurn() {
         return nextTurn;
+    }
+
+    public boolean isWagerGame() {
+        return wagerGame;
     }
 }

@@ -14,13 +14,15 @@ class TicTacToeInitiateGame implements InitiateGame{
     @Override
     public int initiateGame(Game game, String name) {
 
-        game.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare()));
-        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2, new TicTacToeComputerSelectSquare()));
+        game.getPlayers().put(1, new Player(name, "X", 1, new TicTacToeUserSelectSquare(),
+                new UserMakeWager()));
+        game.getPlayers().put(2, new Player("Syntactical Computer", "O", 2,
+                new TicTacToeComputerSelectSquare(), new ComputerMakeWager()));
 
         System.out.println("Welcome to Tic-Tac-Toe, " + name + "!");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("\nWould you like to view instructions for Tic Tac Toe ([y]es or [n]o)?");
+        System.out.print("\nWould you like to view instructions for Tic Tac Toe ([y]es or [n]o)? ");
         String viewInstructions = scanner.nextLine();
         while(!viewInstructions.toLowerCase().equals("y") && !viewInstructions.toLowerCase().equals("n") &&
                 !viewInstructions.toLowerCase().equals("yes") && !viewInstructions.toLowerCase().equals("no")) {
@@ -32,7 +34,16 @@ class TicTacToeInitiateGame implements InitiateGame{
             System.out.println();
             displayInstructions();
         }
-        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails...");
+
+        if(!game.isWagerGame()) {
+            return coinFlip(scanner);
+        }
+
+        return 0;
+    }
+
+    private int coinFlip(Scanner scanner) {
+        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails... ");
         String playerFlip = scanner.nextLine();
         while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
             System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
@@ -60,6 +71,7 @@ class TicTacToeInitiateGame implements InitiateGame{
 
         return coinFlipResult;
     }
+
 
     private void displayInstructions() {
         System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
