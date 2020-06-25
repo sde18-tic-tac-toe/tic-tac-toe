@@ -8,7 +8,7 @@ javac -d classes src\com\tictactoe\tictactoe\client\*.java src\com\tictactoe\tic
 rem   Build the application JAR
 rem   This command adds the directory tree of .class files starting at 'classes', and also the entire 'data' directory.
 rem   The 'data' directory is included in the JAR because the application reads from files in there
-jar --create --file tictactoe.jar -C classes .
+jar --create --file tictactoe.jar -C classes . resources
 
 rem   Create the Javadoc
 rem   The '-package' flag will include non-public classes and all class members except for private ones.

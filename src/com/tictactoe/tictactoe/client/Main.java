@@ -8,6 +8,10 @@ import com.tictactoe.tictactoe.grid.TicTacToeEndInTie;
 import com.tictactoe.tictactoe.grid.TicTacToeEvaluateWin;
 import com.tictactoe.tictactoe.grid.TicTacToeGrid;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -18,6 +22,18 @@ public class Main {
     private static Game game;
 
     public static void main(String[] args) throws InterruptedException {
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("./resources/welcome.txt"));
+            String line;
+            while((line = in.readLine()) != null)
+            {
+                System.out.println(line);
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nWelcome, player 1! Please enter your name: ");
         String name = scanner.nextLine();
