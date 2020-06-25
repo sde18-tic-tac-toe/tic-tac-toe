@@ -1,4 +1,4 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.client;
 
 import com.tictactoe.tictactoe.game.Game;
 import com.tictactoe.tictactoe.game.TicTacToeInitiateGame;
@@ -11,9 +11,9 @@ import com.tictactoe.tictactoe.grid.TicTacToeGrid;
 import java.util.Scanner;
 
 /**
- * Client houses main() method and instantiates the game.
+ * Main houses main() method and instantiates the game.
  */
-public class Client {
+public class Main {
 
     private static Game game;
 

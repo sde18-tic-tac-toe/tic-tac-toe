@@ -3,7 +3,7 @@ package com.tictactoe.tictactoe.game;
 import com.tictactoe.tictactoe.game.Game;
 
 /**
- * Client facing InitiateGame interface (Polymorphism.)
+ * Main facing InitiateGame interface (Polymorphism.)
  */
 public interface InitiateGame {
     /**
