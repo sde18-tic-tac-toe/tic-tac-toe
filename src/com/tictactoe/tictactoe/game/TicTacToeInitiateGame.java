@@ -86,7 +86,8 @@ public class TicTacToeInitiateGame implements InitiateGame {
     }
 
     private void displayInstructions() {
-        System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
+        System.out.println("Here is the game board... Note that each grid square is represented by a number. " +
+                "These numbers represent how you select the square you want to place your token.\n\n" +
 
                 "      |     |     \n" +
                 "   1  |  2  |  3  \n" +
@@ -119,9 +120,9 @@ public class TicTacToeInitiateGame implements InitiateGame {
                 "      |     |     \n" +
                 "   7  |  8  |  X  \n" +
                 "      |     |      \n\n" +
-                "As you can see, squares that have not yet been selected are still designated as the \n" +
-                "number representative of that grid square. Selections that have been made replace\n" +
-                "the number associated with that grid square.\n\n" );
+                "As you can see, squares that have not yet been selected have no designation and \n" +
+                "that grid square is open for selection. Selections that have been made will replace\n" +
+                "the empty square associated with that grid square with your token.\n\n" );
 
         //Thread.sleep(6000);
 
