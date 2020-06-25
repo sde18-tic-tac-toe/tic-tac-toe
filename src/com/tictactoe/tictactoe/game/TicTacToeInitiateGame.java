@@ -1,8 +1,10 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.game;
+
+import com.tictactoe.tictactoe.player.*;
 
 import java.util.Scanner;
 
-class TicTacToeInitiateGame implements InitiateGame{
+public class TicTacToeInitiateGame implements InitiateGame {
 
     /**
      * @param game Reference to the Game.

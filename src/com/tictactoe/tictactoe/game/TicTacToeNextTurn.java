@@ -1,4 +1,4 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.game;
 
 public class TicTacToeNextTurn implements NextTurn {
 
@@ -59,7 +59,7 @@ public class TicTacToeNextTurn implements NextTurn {
         }
 
         // if we end in tie
-        if(game.getGrid().getEndInTieStrategy().endInTie(game.getGrid())) {
+        if(game.getGrid().getEndInTie().endInTie(game.getGrid())) {
             return TurnResult.DRAW;
         }
 

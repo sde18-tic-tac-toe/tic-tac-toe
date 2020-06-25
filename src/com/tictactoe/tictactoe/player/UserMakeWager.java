@@ -1,4 +1,7 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.player;
+
+import com.tictactoe.tictactoe.player.MakeWager;
+import com.tictactoe.tictactoe.player.Player;
 
 import java.util.Scanner;
 
