@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.tictactoe.tictactoe.client"},{"l":"com.tictactoe.tictactoe.game"},{"l":"com.tictactoe.tictactoe.grid"},{"l":"com.tictactoe.tictactoe.player"}]
