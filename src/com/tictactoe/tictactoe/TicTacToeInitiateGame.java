@@ -35,7 +35,15 @@ class TicTacToeInitiateGame implements InitiateGame{
             displayInstructions();
         }
 
-        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails...");
+        if(!game.isWagerGame()) {
+            return coinFlip(scanner);
+        }
+
+        return 0;
+    }
+
+    private int coinFlip(Scanner scanner) {
+        System.out.print("Lets flip a coin to see who goes first! \n Please choose [1] for heads or [2] for tails... ");
         String playerFlip = scanner.nextLine();
         while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
             System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
@@ -61,36 +69,9 @@ class TicTacToeInitiateGame implements InitiateGame{
             coinFlipResult = 2;
         }
 
-        return 0;
-
-//        System.out.print("\nLets flip a coin to see who goes first! Please choose [1]heads or [2]tails... ");
-//        String playerFlip = scanner.nextLine();
-//        while(!playerFlip.equals("1") && !playerFlip.equals("2")) {
-//            System.out.print("Invalid selection. Please select [1] for heads or [2] for tails to see who goes first! ");
-//            playerFlip = scanner.nextLine();
-//        }
-
-//        double flipResult = Math.random();
-//        void coinFlipResult = 0;
-//        if (flipResult <= 0.5 && playerFlip.equals("1")) {
-//            System.out.println("The coin landed heads up! You're first!\n");
-//            coinFlipResult = 1;
-//        } else if
-//        (flipResult > 0.5 && playerFlip.equals("1")) {
-//            System.out.println("The coin landed tails up... You're going second.\n");
-//            coinFlipResult = 2;
-//        } else if
-//        (flipResult >= 0.5 && playerFlip.equals("2")) {
-//            System.out.println("The coin landed tails up! You're first!\n");
-//            coinFlipResult = 1;
-//        } else if
-//        (flipResult < 0.5 && playerFlip.equals("2")) {
-//            System.out.println("The coin landed heads up... You're going second.\n");
-//            coinFlipResult = 2;
-//        }
-//
-//        return coinFlipResult;
+        return coinFlipResult;
     }
+
 
     private void displayInstructions() {
         System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
