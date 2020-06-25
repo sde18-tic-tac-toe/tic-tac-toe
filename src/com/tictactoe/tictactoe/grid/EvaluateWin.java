@@ -1,6 +1,6 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.grid;
 
-import java.util.Map;
+import com.tictactoe.tictactoe.player.Player;
 
 /**
  * Provides client interface to evaluate win condition based on the game that is

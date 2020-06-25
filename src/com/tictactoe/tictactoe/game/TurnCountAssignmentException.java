@@ -1,4 +1,4 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.game;
 
 /**
  * Exception class generates exception message when turnCount is not

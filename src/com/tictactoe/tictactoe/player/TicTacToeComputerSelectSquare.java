@@ -1,4 +1,6 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.player;
+
+import com.tictactoe.tictactoe.grid.TicTacToeGrid;
 
 import java.util.*;
 

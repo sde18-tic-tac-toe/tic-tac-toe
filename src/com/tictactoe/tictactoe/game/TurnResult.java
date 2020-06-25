@@ -1,4 +1,4 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.game;
 
 /**
  * Houses ENUMS that initiateGame pulls from to determine game behavior.

@@ -1,5 +1,8 @@
 package com.tictactoe.tictactoe;
 
+import com.tictactoe.tictactoe.player.ComputerMakeWager;
+import com.tictactoe.tictactoe.player.Player;
+import com.tictactoe.tictactoe.player.TicTacToeComputerSelectSquare;
 import org.junit.Before;
 import org.junit.Test;
 

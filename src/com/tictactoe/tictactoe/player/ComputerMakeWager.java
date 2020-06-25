@@ -1,6 +1,8 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.player;
 
-import java.util.Random;
+import com.tictactoe.tictactoe.player.MakeWager;
+import com.tictactoe.tictactoe.player.Player;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ComputerMakeWager implements MakeWager {
