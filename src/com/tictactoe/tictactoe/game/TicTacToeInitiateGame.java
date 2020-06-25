@@ -35,6 +35,10 @@ public class TicTacToeInitiateGame implements InitiateGame {
         if (viewInstructions.toLowerCase().equals("y")) {
             System.out.println();
             displayInstructions();
+            if (game.isWagerGame()) {
+                System.out.println();
+                displayWagerInstructions();
+            }
         }
 
         if(!game.isWagerGame()) {
@@ -74,6 +78,12 @@ public class TicTacToeInitiateGame implements InitiateGame {
         return coinFlipResult;
     }
 
+    private void displayWagerInstructions() {
+        System.out.println("Wagering:\n \n" +
+                "Each player begins the game with 100 points total, of which they can choose to \n" +
+                "wager at the start of each turn. Players can bet as much or as little as \n" +
+                "they like, though the winner of the wager will go first in that given round. \n");
+    }
 
     private void displayInstructions() {
         System.out.println("Here is the game board... Note that each grid square is represented by a number.\n\n" +
