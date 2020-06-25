@@ -13,22 +13,17 @@ public class TicTacToeNextTurn implements NextTurn {
     @Override
     public TurnResult nextTurn(int firstPlayer, Game game) {
 
-        if(!game.isWagerGame()) {
-            TurnResult result = TurnResult.CONTINUE;
-            result = playerTurn(firstPlayer, game);
-            if(result != TurnResult.CONTINUE) {
-                return result;
-            }
-            int otherPlayer;
-            if(firstPlayer == 1) {
-                otherPlayer = 2;
-            } else {
-                otherPlayer = 1;
-            }
-            return playerTurn(otherPlayer, game);
-        } else {
-            return playerTurn(firstPlayer, game);
+        TurnResult result = playerTurn(firstPlayer, game);
+        if(result != TurnResult.CONTINUE) {
+            return result;
         }
+        int otherPlayer;
+        if(firstPlayer == 1) {
+            otherPlayer = 2;
+        } else {
+            otherPlayer = 1;
+        }
+        return playerTurn(otherPlayer, game);
     }
 
     private TurnResult playerTurn(int player, Game game) {
