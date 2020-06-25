@@ -1,4 +1,4 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.grid;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,14 +54,14 @@ public class TicTacToeGrid implements Grid {
 
     private final Map<Integer, String> squaresFilled;
     private final EvaluateWin evaluateWin;
-    private final EndInTieStrategy endInTieStrategy;
+    private final EndInTie endInTie;
 
     /**
      * @param evaluateWin implements win parameters for Tic Tac Toe.
-     * @param endInTieStrategy implements tie game parameters for Tic Tac Toe.
+     * @param endInTie implements tie game parameters for Tic Tac Toe.
      */
     public TicTacToeGrid(EvaluateWin evaluateWin,
-                         EndInTieStrategy endInTieStrategy) {
+                         EndInTie endInTie) {
         squaresFilled = new HashMap<>() {{
             put(1, " ");
             put(2, " ");
@@ -74,7 +74,7 @@ public class TicTacToeGrid implements Grid {
             put(9, " ");
         }};
         this.evaluateWin = evaluateWin;
-        this.endInTieStrategy = endInTieStrategy;
+        this.endInTie = endInTie;
     }
 
     /**
@@ -94,8 +94,8 @@ public class TicTacToeGrid implements Grid {
     /**
      * @return tie game implementation for Tic Tac Toe.
      */
-    public EndInTieStrategy getEndInTieStrategy() {
-        return endInTieStrategy;
+    public EndInTie getEndInTie() {
+        return endInTie;
     }
 
     /**

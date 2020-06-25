@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="237.0" y="616.0">com.tictactoe.tictactoe.Client</node>
+    <node x="302.0" y="0.0">com.tictactoe.tictactoe.game.Game</node>
+    <node x="0.0" y="0.0">com.tictactoe.tictactoe.player.Player</node>
+    <node x="0.0" y="517.0">com.tictactoe.tictactoe.game.NextTurn</node>
+    <node x="352.0" y="253.0">com.tictactoe.tictactoe.game.TurnResult</node>
+    <node x="0.0" y="616.0">com.tictactoe.tictactoe.player.MakeWager</node>
+    <node x="295.0" y="517.0">com.tictactoe.tictactoe.game.InitiateGame</node>
+    <node x="0.0" y="253.0">com.tictactoe.tictactoe.grid.Grid</node>
+    <node x="0.0" y="418.0">com.tictactoe.tictactoe.player.SelectSquare</node>
+    <node x="345.0" y="418.0">com.tictactoe.tictactoe.grid.EvaluateWin</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="502.8571428571428" y="545.7142857142857" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

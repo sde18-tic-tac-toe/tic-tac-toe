@@ -1,5 +1,9 @@
 package com.tictactoe.tictactoe;
 
+import com.tictactoe.tictactoe.player.ComputerMakeWager;
+import com.tictactoe.tictactoe.player.Player;
+import com.tictactoe.tictactoe.player.TicTacToeUserSelectSquare;
+
 public class ComputerMakeWagerTest {
 
     public static void main(String[] args) {

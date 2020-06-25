@@ -1,4 +1,4 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.player;
 
 import java.util.HashSet;
 import java.util.Set;

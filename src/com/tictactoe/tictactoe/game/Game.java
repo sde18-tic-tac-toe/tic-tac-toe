@@ -1,4 +1,7 @@
-package com.tictactoe.tictactoe;
+package com.tictactoe.tictactoe.game;
+
+import com.tictactoe.tictactoe.grid.Grid;
+import com.tictactoe.tictactoe.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;

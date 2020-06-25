@@ -1,5 +1,11 @@
 package com.tictactoe.tictactoe;
 
+import com.tictactoe.tictactoe.grid.EvaluateWin;
+import com.tictactoe.tictactoe.grid.TicTacToeEvaluateWin;
+import com.tictactoe.tictactoe.player.Player;
+import com.tictactoe.tictactoe.player.TicTacToeUserSelectSquare;
+import com.tictactoe.tictactoe.player.UserMakeWager;
+
 import static org.junit.Assert.*;
 
 public class TicTacToeEvaluateWinTest {
