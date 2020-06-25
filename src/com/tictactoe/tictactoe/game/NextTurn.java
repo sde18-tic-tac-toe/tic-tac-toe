@@ -2,7 +2,7 @@ package com.tictactoe.tictactoe.game;
 
 public interface NextTurn {
     /**
-     * Client facing NextTurn implementation (Polymorphism.)
+     * Main facing NextTurn implementation (Polymorphism.)
      * @param firstPlayer The player who won the coin toss.
      * @param game Reference to the Game.
      * @return Possible outcomes: 0 = no winner and no tie,
