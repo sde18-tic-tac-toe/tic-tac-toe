@@ -20,8 +20,17 @@ import java.util.Scanner;
 public class Main {
 
     private static Game game;
+    private static String name;
+    private static Scanner scanner;
 
+    /**
+     * main method for the application
+     * @param args arguments to the program
+     * @throws InterruptedException Exception in case of program interruption
+     */
     public static void main(String[] args) throws InterruptedException {
+
+        // read in and display banner
         try {
             BufferedReader in = new BufferedReader(new FileReader("./resources/welcome.txt"));
             String line;
@@ -34,14 +43,19 @@ public class Main {
             e.printStackTrace();
         }
 
-        Scanner scanner = new Scanner(System.in);
+        // get user name
+        scanner = new Scanner(System.in);
         System.out.print("\nWelcome, player 1! Please enter your name: ");
-        String name = scanner.nextLine();
+        name = scanner.nextLine();
 
-        gameSelection(scanner, name);
+        // get game selection and start the game
+        gameSelection();
     }
 
-    private static void gameSelection(Scanner scanner, String name) {
+    /**
+     * Private method to drive selection of game
+     */
+    private static void gameSelection() {
         // determine which game the user would like to play
         System.out.println("Which game would you like to play?");
         System.out.println("1: Tic Tac Toe");
@@ -56,14 +70,15 @@ public class Main {
             game = new Game(new TicTacToeGrid(new TicTacToeEvaluateWin(),
                     new TicTacToeEndInTie()), new TicTacToeInitiateGame(),
                     new TicTacToeNextTurn(), false);
-            gameIteration(name);
+            gameIteration();
         } else {
             game = new Game(new TicTacToeGrid(new TicTacToeEvaluateWin(),
                     new TicTacToeEndInTie()), new TicTacToeInitiateGame(),
                     new TicTacToeNextTurn(), true);
-            wagerGameIteration(name);
+            wagerGameIteration();
         }
 
+        // Determine if user would like to play again
         System.out.print("Play again? [y]es or [n]o: ");
         scanner = new Scanner(System.in);
         String playAgain = scanner.nextLine();
@@ -75,34 +90,39 @@ public class Main {
 
         if (playAgain.toLowerCase().equals("y")) {
             System.out.println();
-            gameSelection(scanner, name);
+            gameSelection();
         }
     }
 
-    private static void gameIteration(String name) {
+    /**
+     * Private method each tic tac toe without wagering game iteration
+     */
+    private static void gameIteration() {
+        // initiate game and flip a coin to determine which player goes first
         int coinFlipResult = new TicTacToeInitiateGame().initiateGame(game, name);
 
         game.getGrid().displayGrid();
 
+        // continue game until there is a winner or game ends in tie
         TurnResult turnResult = TurnResult.CONTINUE;
         while (turnResult == TurnResult.CONTINUE) {
             turnResult = game.getNextTurn().nextTurn(coinFlipResult, game);
         }
 
-        if (turnResult == TurnResult.USER_WINS) {
-            System.out.println("Congrats! You are the winner!");
-        } else if (turnResult == TurnResult.COMPUTER_WINS) {
-            System.out.println("Sorry! You've been had...");
-        } else if (turnResult == TurnResult.DRAW) {
-            System.out.println("Draw game!");
-        }
+        // print game result
+        System.out.println(getGameResultMessage(turnResult));
     }
 
-    private static void wagerGameIteration(String name) {
+    /**
+     * Private method for each wagering tic tac toe game iteration
+     */
+    private static void wagerGameIteration() {
+        // initiate game
         game.getInitiateGame().initiateGame(game, name);
 
         game.getGrid().displayGrid();
 
+        // continue game until a player wins or game ends in draw
         TurnResult turnResult = TurnResult.CONTINUE;
         while (turnResult == TurnResult.CONTINUE) {
             // get wagers
@@ -121,16 +141,29 @@ public class Main {
                 System.out.println("You lost the wager this round. Computer takes this turn");
                 highestWager = 2;
             }
-
+            // initiate next turn and get turn result
             turnResult = game.getNextTurn().nextTurn(highestWager, game);
         }
+        // print game result
+        System.out.println(getGameResultMessage(turnResult));
+    }
 
+    /**
+     * Private method for obtaining game result
+     * @param turnResult TurnResult of the last turn of the game
+     * @return Message with game outcome
+     */
+    private static String getGameResultMessage(TurnResult turnResult) {
+        String resultMessage;
         if (turnResult == TurnResult.USER_WINS) {
-            System.out.println("Congrats! You are the winner!");
+            resultMessage = "Congrats! You are the winner!";
         } else if (turnResult == TurnResult.COMPUTER_WINS) {
-            System.out.println("Sorry! You've been had...");
+            resultMessage = "Sorry! You've been had...";
         } else if (turnResult == TurnResult.DRAW) {
-            System.out.println("Draw game!");
+            resultMessage = "Draw game!";
+        } else {
+            resultMessage = "Inconclusive game conclusion.";
         }
+        return resultMessage;
     }
 }
