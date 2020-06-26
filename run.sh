@@ -4,6 +4,5 @@
 
 clear
 
-#     Here, any third-party library JARs are located in lib and added to the classpath [-classpath option]
-#     Remove this -classpath "lib/*" if you're not using any.
+# Run the application
 java -classpath tictactoe.jar com.tictactoe.tictactoe.client.Main
